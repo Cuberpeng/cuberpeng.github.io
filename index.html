@@ -1,352 +1,247 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pengrui Xiang | Academic Homepage</title>
-  <meta name="description" content="Academic homepage of Pengrui Xiang, undergraduate student in Information Security at Beijing University of Technology." />
+  <title>向鹏睿 | Academic Homepage</title>
+  <meta name="description" content="向鹏睿个人学术主页，北京工业大学信息安全实验班本科生，研究方向包括大模型安全、多模态安全与视觉语言学习。" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style_modified.css" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="wrap nav-wrap">
-      <a href="#top" class="brand">Pengrui Xiang</a>
-      <nav class="nav">
-        <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="#experience">Experience</a>
-        <a href="#awards">Awards</a>
-        <a href="#skills">Skills</a>
-      </nav>
-    </div>
-  </header>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="sidebar-inner">
+        <img src="assets/avatar.jpg?v=2" alt="向鹏睿" class="avatar" />
+        <h1>向鹏睿</h1>
+        <p class="name-en">Pengrui Xiang</p>
+        <p class="tagline">北京工业大学计算机学院 信息安全实验班本科生</p>
+        <p class="tagline-en">Undergraduate Student, Information Security Experimental Program, Beijing University of Technology</p>
 
-  <main id="top">
-    <section class="hero">
-      <div class="wrap hero-grid">
-        <div class="hero-card identity-card">
-          <div class="avatar-shell">
-            <img src="assets/avatar.jpg" alt="Pengrui Xiang" class="avatar" />
-          </div>
-          <div class="identity-text">
-            <p class="eyebrow">Academic Homepage</p>
-            <h1>Pengrui Xiang <span>向鹏睿</span></h1>
-            <p class="title">Undergraduate Student in Information Security, Experimental Program</p>
-            <p class="org">Beijing University of Technology</p>
-            <p class="contact">
-              <a href="mailto:xiangpengrui@emails.bjut.edu.cn">xiangpengrui@emails.bjut.edu.cn</a>
-              <span>·</span>
-              <a href="https://github.com/Cuberpeng" target="_blank" rel="noreferrer">GitHub</a>
-            </p>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="mailto:xiangpengrui@emails.bjut.edu.cn">Email Me</a>
-              <a class="btn btn-secondary" href="assets/Xiang_Pengrui_CV.docx" target="_blank" rel="noreferrer">Download CV</a>
-            </div>
-          </div>
+        <div class="sidebar-block">
+          <p><strong>邮箱</strong><br><a href="mailto:xiangpengrui@emails.bjut.edu.cn">xiangpengrui@emails.bjut.edu.cn</a></p>
+          <p><strong>GitHub</strong><br><a href="https://github.com/Cuberpeng" target="_blank" rel="noreferrer">github.com/Cuberpeng</a></p>
+          <p><strong>简历</strong><br><a href="assets/Xiang_Pengrui_CV.docx" target="_blank" rel="noreferrer">下载 CV / Download CV</a></p>
         </div>
 
-        <aside class="hero-card summary-card">
-          <div class="mini-grid">
-            <div>
-              <p class="stat-label">Major</p>
-              <p class="stat-value">Information Security</p>
-            </div>
-            <div>
-              <p class="stat-label">GPA</p>
-              <p class="stat-value">3.99 / 4.00</p>
-            </div>
-            <div>
-              <p class="stat-label">Weighted Avg.</p>
-              <p class="stat-value">91.84</p>
-            </div>
-            <div>
-              <p class="stat-label">Rank</p>
-              <p class="stat-value">8 / 66</p>
-            </div>
-          </div>
-          <div class="tag-row">
-            <span>AI Safety</span>
-            <span>Multimodal LLMs</span>
-            <span>Vision-Language Learning</span>
-            <span>Trustworthy AI</span>
-          </div>
-          <p class="summary-note">
-            I am currently preparing for graduate study and actively seeking research opportunities in multimodal safety, LLM alignment, and trustworthy vision-language learning.
-          </p>
-        </aside>
+        <div class="sidebar-block quick-facts">
+          <div><span>专业</span><strong>信息安全</strong></div>
+          <div><span>GPA</span><strong>3.99 / 4.00</strong></div>
+          <div><span>均分</span><strong>91.84</strong></div>
+          <div><span>排名</span><strong>8 / 66</strong></div>
+        </div>
+
+        <nav class="sidebar-nav">
+          <a href="#about">简介</a>
+          <a href="#education">教育背景</a>
+          <a href="#interests">研究方向</a>
+          <a href="#research">研究工作</a>
+          <a href="#experience">经历</a>
+          <a href="#activities">竞赛与实践</a>
+          <a href="#awards">奖项</a>
+          <a href="#skills">技能</a>
+        </nav>
       </div>
-    </section>
+    </aside>
 
-    <section id="about" class="section">
-      <div class="wrap two-col">
-        <div>
-          <p class="section-kicker">About Me</p>
-          <h2>A compact academic profile, built for professors who read fast</h2>
-        </div>
-        <div>
-          <p>
-            I am an undergraduate student in the Experimental Program of Information Security at Beijing University of Technology. My recent work centers on AI safety and multimodal learning, with particular interest in safety unlearning, refusal calibration, red teaming, and vision-language pre-training. I enjoy turning fuzzy research questions into concrete experimental pipelines, and I am especially motivated by topics that combine solid mechanism design with practical evaluation.
-          </p>
-          <p>
-            Beyond research, I have also worked on programming contests, mathematical modeling, cybersecurity practice, and engineering-oriented experimentation. I hope to continue graduate study in a lab where I can contribute as both a careful experimenter and a reliable builder.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section light-section">
-      <div class="wrap">
-        <p class="section-kicker">Research Interests</p>
-        <h2>Current topics I care about</h2>
-        <div class="interest-grid">
-          <article class="info-card">
-            <h3>Multimodal Safety</h3>
-            <p>Safety alignment, safety unlearning, and cross-modal risk analysis for large vision-language models.</p>
-          </article>
-          <article class="info-card">
-            <h3>LLM Safety Evaluation</h3>
-            <p>Refusal behavior, over-refusal, red teaming, and evaluation under realistic interaction settings.</p>
-          </article>
-          <article class="info-card">
-            <h3>Vision-Language Learning</h3>
-            <p>Representation learning, multimodal fusion, and domain-specific pre-training for structured visual data.</p>
-          </article>
-          <article class="info-card">
-            <h3>Trustworthy AI Systems</h3>
-            <p>Robustness, interpretability, and practical mechanisms that improve reliability without sacrificing utility.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="research" class="section">
-      <div class="wrap">
-        <p class="section-kicker">Selected Research</p>
-        <h2>Ongoing and recent work</h2>
-        <p class="section-intro">
-          The following summaries describe the main ideas of my recent research projects. Since several manuscripts are still under submission, I present the work by topic rather than by paper title.
+    <main class="main">
+      <section id="about" class="section intro">
+        <p class="section-kicker">简介 · About</p>
+        <h2>聚焦大模型安全与多模态学习</h2>
+        <p>
+          我目前是北京工业大学计算机学院信息安全实验班本科生，正在准备保研，主要关注<strong>大模型安全、多模态安全、拒答校准、红队测试</strong>与<strong>视觉语言学习</strong>。
         </p>
+        <p>
+          我希望在研究生阶段继续围绕具有机制性与实验性的课题开展研究，尤其关注能把问题定义、方法设计与实验验证结合起来的方向。
+        </p>
+        <p class="en-note">
+          My recent work focuses on LLM safety, multimodal safety, refusal calibration, red teaming, and vision-language learning. I am actively seeking graduate research opportunities in these areas.
+        </p>
+      </section>
 
-        <div class="research-grid">
-          <article class="research-card featured">
-            <div class="card-top">
-              <span class="badge">Second-author project</span>
-              <span class="date">Jan 2026 – Mar 2026</span>
-            </div>
+      <section id="education" class="section">
+        <p class="section-kicker">教育背景 · Education</p>
+        <h2>北京工业大学</h2>
+        <div class="entry">
+          <div class="entry-head">
+            <h3>计算机学院 · 信息安全（实验班）</h3>
+            <span>本科在读</span>
+          </div>
+          <ul class="compact-list">
+            <li>加权平均分 91.84，GPA 3.99 / 4.00，专业排名 8 / 66</li>
+            <li>主要课程 数据结构与算法 98，计算机组成原理 94，信息内容安全 94，计算机网络 92</li>
+          </ul>
+          <p class="en-note">B.Eng. student in Information Security at Beijing University of Technology, ranked 8/66 in the major.</p>
+        </div>
+      </section>
+
+      <section id="interests" class="section">
+        <p class="section-kicker">研究方向 · Research Interests</p>
+        <h2>当前重点关注</h2>
+        <div class="chips">
+          <span>大模型安全</span>
+          <span>多模态安全</span>
+          <span>拒答行为与校准</span>
+          <span>红队测试与评测</span>
+          <span>视觉语言学习</span>
+          <span>可信人工智能</span>
+        </div>
+        <p class="en-note">Research interests include LLM safety, multimodal safety, refusal calibration, red teaming, and trustworthy vision-language learning.</p>
+      </section>
+
+      <section id="research" class="section research-only-en">
+        <p class="section-kicker">Research</p>
+        <h2>Selected Research Projects</h2>
+        <p class="section-note">To avoid listing unpublished titles, the following projects are described by topic.</p>
+
+        <article class="project-card">
+          <div class="entry-head">
             <h3>Selective safety unlearning for multimodal large language models</h3>
-            <p>
-              This project studies how to reduce harmful multimodal behavior without causing blanket refusal on benign inputs. The core idea is to intervene at the multimodal connector, estimate sample-specific risk from explicit and implicit evidence, and suppress only the low-rank risk-aligned directions while preserving utility-relevant components.
-            </p>
-            <ul>
-              <li>Worked on experiment design, cloud-based training, figure production, and empirical analysis.</li>
-              <li>Focused on cross-modal risk, over-refusal, and out-of-distribution generalization in multimodal safety settings.</li>
-            </ul>
-          </article>
+            <span>Second Author · 2026.01 – 2026.03</span>
+          </div>
+          <p>This project studies how to mitigate harmful multimodal behavior without triggering blanket refusal on benign inputs. The work focuses on connector-level intervention, sample-specific risk estimation, and utility-preserving suppression of risk-aligned directions.</p>
+          <ul class="compact-list">
+            <li>Worked on experiment design, cloud-based training, figure production, and empirical analysis.</li>
+            <li>Focused on over-refusal, cross-modal risk, and out-of-distribution generalization.</li>
+          </ul>
+        </article>
 
-          <article class="research-card featured">
-            <div class="card-top">
-              <span class="badge">First-author project</span>
-              <span class="date">Jan 2026 – Mar 2026</span>
-            </div>
+        <article class="project-card">
+          <div class="entry-head">
             <h3>Refusal calibration under benign multi-turn dialogue history</h3>
-            <p>
-              This project investigates a subtle failure mode in aligned language models: safe requests may be rejected after benign but compliance-heavy conversational history. I built experiments around history-induced refusal drift and explored a lightweight calibration strategy that separates the original refusal boundary from history-driven conservative bias.
-            </p>
-            <ul>
-              <li>Implemented the main experimental pipeline in Python and completed end-to-end analysis and writing.</li>
-              <li>Emphasized stability across conversation histories rather than simply making the model more permissive.</li>
-            </ul>
-          </article>
+            <span>First Author · 2026.01 – 2026.03</span>
+          </div>
+          <p>This project investigates how benign yet compliance-heavy dialogue history can induce unnecessary refusals on safe requests. It explores lightweight calibration strategies that separate the original refusal boundary from history-driven conservative bias.</p>
+          <ul class="compact-list">
+            <li>Implemented the main pipeline in Python and completed end-to-end analysis and writing.</li>
+            <li>Emphasized robustness and consistency across different conversational histories.</li>
+          </ul>
+        </article>
 
-          <article class="research-card">
-            <div class="card-top">
-              <span class="badge">Third-author project</span>
-              <span class="date">Nov 2025 – Jan 2026</span>
-            </div>
+        <article class="project-card">
+          <div class="entry-head">
             <h3>Budget-efficient red teaming for LLM safety evaluation</h3>
-            <p>
-              This work reframes red teaming as a budget-constrained failure discovery problem. The system combines cognitive profiling, tree search, and iterative strategy refinement to discover diverse policy violations earlier and with fewer queries.
-            </p>
-            <ul>
-              <li>Used Python and API-based evaluation across four large models.</li>
-              <li>Helped coordinate experiments, data analysis, and visualization.</li>
-            </ul>
-          </article>
+            <span>Third Author · 2025.11 – 2026.01</span>
+          </div>
+          <p>This work frames red teaming as a budget-constrained failure discovery problem. It combines cognitive profiling, search-based strategy selection, and iterative refinement to discover diverse policy violations earlier and with fewer queries.</p>
+          <ul class="compact-list">
+            <li>Used Python and API-based evaluation across four large models.</li>
+            <li>Contributed to experiments, data analysis, and visualization.</li>
+          </ul>
+        </article>
 
-          <article class="research-card">
-            <div class="card-top">
-              <span class="badge">Fourth-author project</span>
-              <span class="date">Dec 2025 – Mar 2026</span>
-            </div>
+        <article class="project-card">
+          <div class="entry-head">
             <h3>Remote sensing vision-language pre-training with hierarchical semantics</h3>
-            <p>
-              This project explores how to bridge global scene understanding and local fine-grained semantics in remote sensing imagery. The framework uses multi-granularity supervision, regional semantic mining, and lightweight visual adaptation to improve remote sensing vision-language representation learning.
-            </p>
-            <ul>
-              <li>Participated in experimental iteration and figure design.</li>
-              <li>Contributed to project writing and visual presentation of results.</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
+            <span>Fourth Author · 2025.12 – 2026.03</span>
+          </div>
+          <p>This project explores how to bridge global scene understanding and local fine-grained semantics in remote sensing imagery through multi-granularity supervision, regional semantic mining, and lightweight visual adaptation.</p>
+          <ul class="compact-list">
+            <li>Participated in experiment iteration and figure design.</li>
+            <li>Contributed to project writing and visual presentation of results.</li>
+          </ul>
+        </article>
+      </section>
 
-    <section id="experience" class="section light-section">
-      <div class="wrap">
-        <p class="section-kicker">Experience</p>
-        <h2>Research training, engineering, and practice</h2>
-        <div class="timeline">
-          <article class="timeline-item">
-            <div class="timeline-date">2025.11 – Present</div>
-            <div class="timeline-body">
-              <h3>Nankai University research collaboration</h3>
-              <p>Collected and annotated multiple infrared small-target datasets for ongoing work on Omni-IRSTD data and fisheye simulation.</p>
-            </div>
-          </article>
-          <article class="timeline-item">
-            <div class="timeline-date">2025.02 – 2025.05</div>
-            <div class="timeline-body">
-              <h3>CCF SPP Young Researchers Training Program</h3>
-              <p>Read classical and recent papers on vision-language models, model acceleration, and parameter-efficient tuning, while building a stronger deep learning foundation and attempting partial reproductions.</p>
-            </div>
-          </article>
-          <article class="timeline-item">
-            <div class="timeline-date">2024.02 – 2025.04</div>
-            <div class="timeline-body">
-              <h3>Spark Fund Project at BJUT</h3>
-              <p>Studied few-shot IoT traffic classification with pre-trained models, reviewed related literature, and completed experiments with traditional machine learning baselines.</p>
-            </div>
-          </article>
-          <article class="timeline-item">
-            <div class="timeline-date">2025.10 – 2025.11</div>
-            <div class="timeline-body">
-              <h3>Cybersecurity attack-and-defense exercise</h3>
-              <p>Served on the university attack team and identified weak-password vulnerabilities and personal-information exposure issues during a city-level cybersecurity exercise.</p>
-            </div>
-          </article>
-          <article class="timeline-item">
-            <div class="timeline-date">2025.01 – 2025.02</div>
-            <div class="timeline-body">
-              <h3>Ericsson internship</h3>
-              <p>Worked in the software development department and helped build a tool for resolving conflicts during project code refactoring.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+      <section id="experience" class="section">
+        <p class="section-kicker">经历 · Experience</p>
+        <h2>科研训练与实践经历</h2>
 
-    <section class="section">
-      <div class="wrap">
-        <p class="section-kicker">Selected Activities</p>
-        <h2>Competitions and technical practice</h2>
-        <div class="interest-grid">
-          <article class="info-card">
-            <h3>Mathematical Modeling Competition</h3>
-            <p>Won First Prize in the Beijing division and worked on intelligent optimization strategies, data cleaning, modeling code, and visualization with Python and MATLAB.</p>
-          </article>
-          <article class="info-card">
-            <h3>Robotics and AI Competition</h3>
-            <p>Participated in a lunar exploration track, used remote debugging tools, and improved robotic-arm grasping precision for the competition platform.</p>
-          </article>
-          <article class="info-card">
-            <h3>ACM Programming Contest</h3>
-            <p>Took part in the ICPC school selection and regional preparation, strengthening algorithmic thinking and collaborative problem solving.</p>
-          </article>
-          <article class="info-card">
-            <h3>Information Security Competition</h3>
-            <p>Designed a lightweight illegal-image detection method based on fused color features, preprocessing, and automatic classification.</p>
-          </article>
+        <div class="entry">
+          <div class="entry-head">
+            <h3>南开大学合作研究</h3>
+            <span>2025.11 – 至今</span>
+          </div>
+          <p>搜集并标注多组红外弱小目标数据集，参与 Omni-IRSTD 数据与鱼眼仿真相关研究。</p>
+          <p class="en-note">Collected and annotated infrared small-target datasets for ongoing research collaboration.</p>
         </div>
-      </div>
-    </section>
 
-    <section id="awards" class="section light-section">
-      <div class="wrap">
-        <p class="section-kicker">Awards</p>
-        <h2>Selected honors</h2>
-        <div class="award-grid">
-          <div class="award-card">
-            <span class="award-year">2025</span>
-            <p>Merit Student, Beijing University of Technology</p>
+        <div class="entry">
+          <div class="entry-head">
+            <h3>CCF SPP 新芽训练计划</h3>
+            <span>2025.02 – 2025.05</span>
           </div>
-          <div class="award-card">
-            <span class="award-year">2024 & 2025</span>
-            <p>Academic Excellence Scholarship, Beijing University of Technology</p>
-          </div>
-          <div class="award-card">
-            <span class="award-year">2025</span>
-            <p>Innovation and Entrepreneurship Award, Beijing University of Technology</p>
-          </div>
-          <div class="award-card">
-            <span class="award-year">2025</span>
-            <p>First Prize, Beijing Division, National College Students Mathematical Modeling Competition</p>
-          </div>
-          <div class="award-card">
-            <span class="award-year">2025</span>
-            <p>Third Prize, Beijing Division, China Robot and Artificial Intelligence Competition</p>
-          </div>
-          <div class="award-card">
-            <span class="award-year">2025</span>
-            <p>Algorithm and programming awards in campus-level contests</p>
-          </div>
+          <p>系统阅读视觉语言模型、模型加速与高效微调方向论文，夯实深度学习基础并尝试部分复现。</p>
+          <p class="en-note">Read papers on vision-language models, model acceleration, and efficient tuning, while attempting partial reproductions.</p>
         </div>
-      </div>
-    </section>
 
-    <section id="skills" class="section">
-      <div class="wrap">
-        <p class="section-kicker">Skills</p>
-        <h2>Technical toolkit</h2>
-        <div class="skills-grid">
-          <div class="skill-panel">
-            <h3>Programming</h3>
-            <div class="tag-row">
-              <span>Python</span>
-              <span>C</span>
-              <span>C++</span>
-              <span>Java</span>
-              <span>Verilog</span>
-            </div>
+        <div class="entry">
+          <div class="entry-head">
+            <h3>北京工业大学星火基金项目</h3>
+            <span>2024.02 – 2025.04</span>
           </div>
-          <div class="skill-panel">
-            <h3>Frameworks & Tools</h3>
-            <div class="tag-row">
-              <span>PyTorch</span>
-              <span>Hugging Face</span>
-              <span>GitHub</span>
-              <span>LaTeX</span>
-              <span>Draw.io</span>
-            </div>
-          </div>
-          <div class="skill-panel">
-            <h3>Design & Productivity</h3>
-            <div class="tag-row">
-              <span>Photoshop</span>
-              <span>Illustrator</span>
-              <span>Scientific Plotting</span>
-              <span>Paper Figures</span>
-            </div>
-          </div>
-          <div class="skill-panel">
-            <h3>Languages</h3>
-            <div class="tag-row">
-              <span>CET-4 590</span>
-              <span>CET-6 554</span>
-            </div>
-          </div>
+          <p>围绕小样本条件下的物联网流量分类开展研究，完成传统机器学习方法实验。</p>
+          <p class="en-note">Studied few-shot IoT traffic classification and completed baseline experiments.</p>
         </div>
-      </div>
-    </section>
-  </main>
 
-  <footer class="site-footer">
-    <div class="wrap footer-wrap">
-      <p>© 2026 Pengrui Xiang. Built for academic outreach and graduate applications.</p>
-      <p class="footer-note">Tip: replace the placeholder avatar with your own photo before publishing.</p>
-    </div>
-  </footer>
+        <div class="entry">
+          <div class="entry-head">
+            <h3>北京市教育系统网络安全攻防演习</h3>
+            <span>2025.10 – 2025.11</span>
+          </div>
+          <p>作为学校攻击队成员，发现弱口令漏洞及个人信息泄露问题，参与总结交流。</p>
+          <p class="en-note">Served on the university attack team in a city-level cybersecurity exercise.</p>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <h3>爱立信实习</h3>
+            <span>2025.01 – 2025.02</span>
+          </div>
+          <p>在软件开发部参与代码重构冲突处理工具开发。</p>
+          <p class="en-note">Worked on a tool for resolving conflicts during project code refactoring.</p>
+        </div>
+      </section>
+
+      <section id="activities" class="section">
+        <p class="section-kicker">竞赛与实践 · Activities</p>
+        <h2>代表性竞赛</h2>
+        <div class="entry">
+          <ul class="compact-list">
+            <li><strong>全国大学生数学建模竞赛</strong> 北京赛区一等奖，负责建模编程、数据处理与可视化</li>
+            <li><strong>中国机器人及人工智能大赛</strong> 北京赛区三等奖，参与月球探索赛道调试与机械臂精度优化</li>
+            <li><strong>ACM 国际大学生程序设计竞赛</strong> 参加校内预选赛与区域赛准备</li>
+            <li><strong>全国大学生信息安全竞赛</strong> 设计并实现基于颜色特征融合的轻量级违规图像检测方法</li>
+          </ul>
+          <p class="en-note">Selected activities include mathematical modeling, robotics, programming contests, and information security competitions.</p>
+        </div>
+      </section>
+
+      <section id="awards" class="section">
+        <p class="section-kicker">奖项 · Awards</p>
+        <h2>主要奖项与荣誉</h2>
+        <div class="entry">
+          <ul class="compact-list two-col-list">
+            <li>2025 年北京工业大学校级三好学生</li>
+            <li>2024、2025 年北京工业大学学习优秀奖学金</li>
+            <li>2025 年北京工业大学创新创业奖</li>
+            <li>全国大学生数学建模竞赛北京赛区一等奖</li>
+            <li>中国机器人及人工智能大赛北京赛区三等奖</li>
+            <li>程序设计类校内选拔与竞赛奖项若干</li>
+          </ul>
+          <p class="en-note">Awards include Merit Student, Academic Excellence Scholarship, Innovation and Entrepreneurship Award, and competition prizes.</p>
+        </div>
+      </section>
+
+      <section id="skills" class="section">
+        <p class="section-kicker">技能 · Skills</p>
+        <h2>技术能力</h2>
+        <div class="skills-table">
+          <div><strong>编程语言</strong></div><div>Python、C、C++、Java、Verilog</div>
+          <div><strong>工具与框架</strong></div><div>PyTorch、Hugging Face、GitHub、LaTeX、Draw.io</div>
+          <div><strong>图形与排版</strong></div><div>Photoshop、Illustrator、科研绘图与论文排版</div>
+          <div><strong>英语能力</strong></div><div>CET-4 590，CET-6 554</div>
+        </div>
+        <p class="en-note">Technical toolkit includes Python, C/C++, PyTorch, Hugging Face, GitHub, LaTeX, and scientific figure design.</p>
+      </section>
+
+      <footer class="footer">
+        <p>© 2026 向鹏睿 · Pengrui Xiang</p>
+        <p class="en-note">Built for academic outreach and graduate applications.</p>
+      </footer>
+    </main>
+  </div>
 </body>
 </html>
