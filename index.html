@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="site-locked">
   <div class="page-shell">
     <aside class="sidebar">
       <div class="sidebar-inner">
@@ -55,7 +55,28 @@
       </div>
     </aside>
 
+
     <main class="main">
+      <section class="gate-panel" id="gate-panel">
+        <p class="section-kicker">访问控制 / Access</p>
+        <h2>输入密码查看完整主页</h2>
+        <p class="zh-text">左侧为公开信息，包括头像、学校、联系方式与基本学业信息。右侧详细内容已加轻量密码保护，仅在输入密码或使用教师专属链接后显示。</p>
+        <p class="en-text">The sidebar remains public. The detailed profile on the right is protected and will appear after entering the password or opening the teacher access link.</p>
+        <div class="gate-box">
+          <label for="profile-password" class="gate-label">访问密码 / Password</label>
+          <div class="gate-form">
+            <input id="profile-password" class="gate-input" type="password" placeholder="请输入访问密码" />
+            <button id="unlock-btn" class="gate-button" type="button">进入 / Unlock</button>
+          </div>
+          <p id="gate-message" class="gate-message">请输入密码查看完整内容。</p>
+        </div>
+        <div class="gate-tip">
+          <p class="zh-text small">教师专属链接说明 你可以在发邮件时使用带有 <code>?access=...</code> 参数的专属链接。打开后会自动进入完整页面，无需再次输入密码。</p>
+          <p class="en-text small">For faculty outreach, you may share a special link with an <code>?access=...</code> token so the full page opens directly.</p>
+        </div>
+      </section>
+      <div id="protected-content" class="protected-content">
+
       <header class="topbar">
         <nav class="page-nav">
           <a href="#about">简介 About</a>
@@ -346,7 +367,75 @@
         <p class="zh-text">© 2026 向鹏睿。该主页主要用于学术交流与研究生申请展示。</p>
         <p class="en-text">© 2026 Pengrui Xiang. This homepage is built for academic outreach and graduate applications.</p>
       </footer>
+      </div>
     </main>
   </div>
+  <script>
+    const ACCESS_PASSWORD = "REPLACE_WITH_YOUR_PASSWORD";
+    const ACCESS_TOKEN = "REPLACE_WITH_YOUR_TEACHER_TOKEN";
+    const SESSION_KEY = "xpr_profile_unlocked_v1";
+
+    const bodyEl = document.body;
+    const gatePanel = document.getElementById("gate-panel");
+    const protectedContent = document.getElementById("protected-content");
+    const passwordInput = document.getElementById("profile-password");
+    const unlockBtn = document.getElementById("unlock-btn");
+    const gateMessage = document.getElementById("gate-message");
+
+    function setLockedState() {
+      bodyEl.classList.remove("site-unlocked");
+      bodyEl.classList.add("site-locked");
+      if (passwordInput) passwordInput.focus();
+    }
+
+    function setUnlockedState(fromToken = false) {
+      bodyEl.classList.remove("site-locked");
+      bodyEl.classList.add("site-unlocked");
+      sessionStorage.setItem(SESSION_KEY, "1");
+      if (fromToken) {
+        const cleanUrl = window.location.origin + window.location.pathname + window.location.hash;
+        window.history.replaceState({}, document.title, cleanUrl);
+      }
+    }
+
+    function showMessage(text, ok = false) {
+      gateMessage.textContent = text;
+      gateMessage.classList.toggle("success", ok);
+      gateMessage.classList.toggle("error", !ok);
+    }
+
+    function tryUnlockByPassword() {
+      const value = passwordInput.value.trim();
+      if (!value) {
+        showMessage("请输入访问密码。");
+        return;
+      }
+      if (value === ACCESS_PASSWORD) {
+        showMessage("验证成功，正在进入完整页面。", true);
+        setUnlockedState(false);
+      } else {
+        showMessage("密码不正确，请重新输入。");
+      }
+    }
+
+    unlockBtn.addEventListener("click", tryUnlockByPassword);
+    passwordInput.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        tryUnlockByPassword();
+      }
+    });
+
+    const params = new URLSearchParams(window.location.search);
+    const teacherToken = params.get("access");
+
+    if (sessionStorage.getItem(SESSION_KEY) === "1") {
+      setUnlockedState(false);
+    } else if (teacherToken && teacherToken === ACCESS_TOKEN) {
+      setUnlockedState(true);
+    } else {
+      setLockedState();
+    }
+  </script>
 </body>
 </html>
