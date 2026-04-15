@@ -8,9 +8,677 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <style>
+
+    :root {
+      --bg: #f4f6fb;
+      --bg-deep: #eef2f8;
+      --panel: rgba(255,255,255,0.88);
+      --panel-strong: rgba(255,255,255,0.96);
+      --text: #182230;
+      --muted: #5c6777;
+      --soft: #7c8798;
+      --line: rgba(23, 35, 52, 0.10);
+      --line-strong: rgba(23, 35, 52, 0.18);
+      --accent: #24476d;
+      --accent-strong: #193554;
+      --accent-soft: rgba(36, 71, 109, 0.08);
+      --gold: #8c6a2f;
+      --gold-soft: rgba(140, 106, 47, 0.10);
+      --shadow: 0 22px 56px rgba(18, 28, 45, 0.08);
+      --shadow-soft: 0 14px 32px rgba(18, 28, 45, 0.06);
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-sm: 14px;
+      --sidebar-w: 340px;
+      --max-w: 1480px;
+
+      --first-bg: rgba(28, 92, 141, 0.12);
+      --first-border: rgba(28, 92, 141, 0.28);
+      --first-text: #1d5c8d;
+
+      --second-bg: rgba(32, 114, 91, 0.12);
+      --second-border: rgba(32, 114, 91, 0.26);
+      --second-text: #1f6f59;
+
+      --third-bg: rgba(164, 100, 34, 0.13);
+      --third-border: rgba(164, 100, 34, 0.28);
+      --third-text: #9a5f21;
+
+      --fourth-bg: rgba(102, 92, 152, 0.12);
+      --fourth-border: rgba(102, 92, 152, 0.24);
+      --fourth-text: #675d98;
+
+      --ccf-a-bg: rgba(132, 40, 63, 0.11);
+      --ccf-a-border: rgba(132, 40, 63, 0.26);
+      --ccf-a-text: #84283f;
+
+      --ccf-b-bg: rgba(151, 113, 28, 0.13);
+      --ccf-b-border: rgba(151, 113, 28, 0.27);
+      --ccf-b-text: #8f6a18;
+
+      --ccf-c-bg: rgba(63, 92, 138, 0.12);
+      --ccf-c-border: rgba(63, 92, 138, 0.25);
+      --ccf-c-text: #45618d;
+
+      --mm-bg: rgba(104, 75, 142, 0.12);
+      --mm-border: rgba(104, 75, 142, 0.25);
+      --mm-text: #664c8d;
+
+      --ijcai-bg: rgba(35, 87, 150, 0.12);
+      --ijcai-border: rgba(35, 87, 150, 0.25);
+      --ijcai-text: #245793;
+
+      --icic-bg: rgba(38, 117, 115, 0.12);
+      --icic-border: rgba(38, 117, 115, 0.25);
+      --icic-text: #276f6d;
+
+      --submitted-bg: rgba(75, 85, 99, 0.10);
+      --submitted-border: rgba(75, 85, 99, 0.18);
+      --submitted-text: #4b5563;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Noto Sans SC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 0% 0%, rgba(36,71,109,0.12), transparent 24%),
+        radial-gradient(circle at 100% 0%, rgba(102,92,152,0.10), transparent 22%),
+        radial-gradient(circle at 50% 100%, rgba(140,106,47,0.08), transparent 30%),
+        linear-gradient(180deg, #f8fafd 0%, var(--bg) 48%, var(--bg-deep) 100%);
+      line-height: 1.75;
+      letter-spacing: 0.003em;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page-shell {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 28px;
+      display: grid;
+      grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .sidebar,
+    .main {
+      min-width: 0;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 28px;
+    }
+
+    .sidebar-inner,
+    .section,
+    .entry-card,
+    .paper-card,
+    .topbar,
+    .footer {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .sidebar-inner {
+      border-radius: 28px;
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sidebar-inner::before,
+    .topbar::before,
+    .section::before,
+    .footer::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, rgba(36,71,109,0.9), rgba(140,106,47,0.55), rgba(102,92,152,0.75));
+      opacity: 0.72;
+      pointer-events: none;
+    }
+
+    .section,
+    .footer,
+    .topbar {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .avatar {
+      width: 132px;
+      height: 132px;
+      border-radius: 28px;
+      object-fit: cover;
+      border: 1px solid rgba(255,255,255,0.8);
+      box-shadow: 0 18px 34px rgba(18, 28, 45, 0.16);
+      margin-bottom: 20px;
+    }
+
+    .sidebar-name {
+      font-family: "Crimson Text", serif;
+      font-size: 2.08rem;
+      line-height: 1.05;
+      margin: 0;
+      letter-spacing: 0.01em;
+      color: #142334;
+    }
+
+    .sidebar-name-en {
+      margin: 8px 0 10px;
+      font-size: 0.98rem;
+      color: var(--muted);
+    }
+
+    .sidebar-role,
+    .sidebar-role-en,
+    .section-note,
+    .subline-en,
+    .en-text,
+    .en-line,
+    .fact-card em,
+    .skill-label span {
+      color: var(--muted);
+    }
+
+    .sidebar-role,
+    .sidebar-role-en {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .sidebar-role-en {
+      margin-top: 4px;
+    }
+
+    .sidebar-block {
+      margin-top: 24px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+    }
+
+    .sidebar-label,
+    .section-kicker {
+      margin: 0 0 12px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .sidebar-list,
+    .detail-list,
+    .award-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .sidebar-list li {
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 8px 0;
+      font-size: 0.95rem;
+    }
+
+    .sidebar-list span {
+      color: var(--soft);
+    }
+
+    .facts-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .fact-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(248,250,253,0.96));
+      border: 1px solid rgba(36,71,109,0.10);
+      border-radius: 18px;
+      padding: 14px 14px 12px;
+      min-height: 102px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .fact-label {
+      display: block;
+      font-size: 0.76rem;
+      letter-spacing: 0.08em;
+      color: var(--soft);
+      margin-bottom: 8px;
+    }
+
+    .fact-card strong {
+      display: block;
+      font-size: 1.05rem;
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+
+    .fact-card em {
+      display: block;
+      font-style: normal;
+      font-size: 0.84rem;
+      line-height: 1.45;
+    }
+
+    .main {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 20px;
+      z-index: 10;
+      border-radius: 22px;
+      padding: 14px 18px;
+    }
+
+    .page-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .page-nav a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(36,71,109,0.10);
+      background: rgba(255,255,255,0.84);
+      color: #203040;
+      font-size: 0.92rem;
+      box-shadow: 0 4px 14px rgba(18, 28, 45, 0.04);
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .page-nav a:hover {
+      text-decoration: none;
+      transform: translateY(-1px);
+      border-color: rgba(36,71,109,0.22);
+      background: rgba(36,71,109,0.06);
+      box-shadow: 0 10px 20px rgba(18, 28, 45, 0.07);
+    }
+
+    .section,
+    .footer {
+      border-radius: 26px;
+      padding: 30px 32px;
+    }
+
+    .hero-section {
+      padding-top: 34px;
+      padding-bottom: 34px;
+      background:
+        radial-gradient(circle at top right, rgba(36,71,109,0.08), transparent 28%),
+        linear-gradient(135deg, rgba(255,255,255,0.98), rgba(249,251,255,0.95));
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-family: "Crimson Text", serif;
+      font-size: clamp(2rem, 2.6vw, 2.75rem);
+      line-height: 1.15;
+      letter-spacing: 0.01em;
+      color: #162436;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 1.16rem;
+      line-height: 1.45;
+      color: #1d2a3a;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .zh-text + .en-text,
+    .zh-line + .en-line,
+    .section-note + .section-note,
+    .paper-card .zh-text + .en-text,
+    .entry-card .zh-text + .en-text {
+      margin-top: 8px;
+    }
+
+    .small {
+      font-size: 0.93rem;
+    }
+
+    .interest-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .interest-card,
+    .paper-card,
+    .entry-card {
+      background: var(--panel-strong);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px 24px;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+    }
+
+    .interest-card:hover,
+    .paper-card:hover,
+    .entry-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 34px rgba(18, 28, 45, 0.09);
+      border-color: rgba(36,71,109,0.16);
+    }
+
+    .interest-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(247,249,252,0.96));
+    }
+
+    .paper-card {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top right, rgba(36,71,109,0.05), transparent 28%),
+        linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,250,253,0.97));
+    }
+
+    .paper-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 4px;
+      background: linear-gradient(180deg, rgba(36,71,109,0.95), rgba(140,106,47,0.72));
+      opacity: 0.92;
+    }
+
+    .paper-card + .paper-card,
+    .entry-card + .entry-card {
+      margin-top: 14px;
+    }
+
+    .entry-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: flex-start;
+      margin-bottom: 14px;
+    }
+
+    .date-tag {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, rgba(140,106,47,0.08), rgba(140,106,47,0.14));
+      border: 1px solid rgba(140,106,47,0.14);
+      color: var(--gold);
+      font-size: 0.86rem;
+      white-space: nowrap;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.55);
+    }
+
+    .meta-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 14px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      border: 1px solid var(--line);
+      background: #fbfcfe;
+      color: var(--text);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
+    }
+
+    .pill.author.first {
+      background: var(--first-bg);
+      border-color: var(--first-border);
+      color: var(--first-text);
+      font-weight: 600;
+    }
+
+    .pill.author.second {
+      background: var(--second-bg);
+      border-color: var(--second-border);
+      color: var(--second-text);
+      font-weight: 600;
+    }
+
+    .pill.author.third {
+      background: var(--third-bg);
+      border-color: var(--third-border);
+      color: var(--third-text);
+      font-weight: 600;
+    }
+
+    .pill.author.fourth {
+      background: var(--fourth-bg);
+      border-color: var(--fourth-border);
+      color: var(--fourth-text);
+      font-weight: 600;
+    }
+
+    .pill.ccf.a {
+      background: var(--ccf-a-bg);
+      border-color: var(--ccf-a-border);
+      color: var(--ccf-a-text);
+      font-weight: 700;
+    }
+
+    .pill.ccf.b {
+      background: var(--ccf-b-bg);
+      border-color: var(--ccf-b-border);
+      color: var(--ccf-b-text);
+      font-weight: 700;
+    }
+
+    .pill.ccf.c {
+      background: var(--ccf-c-bg);
+      border-color: var(--ccf-c-border);
+      color: var(--ccf-c-text);
+      font-weight: 700;
+    }
+
+    .pill.venue.mm {
+      background: var(--mm-bg);
+      border-color: var(--mm-border);
+      color: var(--mm-text);
+    }
+
+    .pill.venue.ijcai {
+      background: var(--ijcai-bg);
+      border-color: var(--ijcai-border);
+      color: var(--ijcai-text);
+    }
+
+    .pill.venue.icic {
+      background: var(--icic-bg);
+      border-color: var(--icic-border);
+      color: var(--icic-text);
+    }
+
+    .pill.status.submitted {
+      background: var(--submitted-bg);
+      border-color: var(--submitted-border);
+      color: var(--submitted-text);
+    }
+
+    .detail-list li,
+    .award-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .detail-list li:last-child,
+    .award-list li:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .detail-list li:first-child,
+    .award-list li:first-child {
+      padding-top: 0;
+    }
+
+    .zh-line,
+    .en-line {
+      display: block;
+    }
+
+    .skills-table {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--panel-strong);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .skill-row {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .skill-row:last-child {
+      border-bottom: 0;
+    }
+
+    .skill-label,
+    .skill-value {
+      padding: 18px 20px;
+    }
+
+    .skill-label {
+      background: linear-gradient(180deg, rgba(36,71,109,0.04), rgba(140,106,47,0.05));
+      border-right: 1px solid var(--line);
+      font-weight: 600;
+    }
+
+    .footer {
+      text-align: center;
+    }
+
+    .footer .en-text {
+      margin-top: 6px;
+    }
+
+    code {
+      padding: 2px 6px;
+      border-radius: 8px;
+      background: rgba(36,71,109,0.06);
+      border: 1px solid rgba(36,71,109,0.08);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.92em;
+    }
+
+    @media (max-width: 1100px) {
+      .page-shell {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .page-shell {
+        padding: 16px;
+        gap: 16px;
+      }
+
+      .sidebar-inner,
+      .section,
+      .footer,
+      .topbar {
+        border-radius: 20px;
+      }
+
+      .sidebar-inner,
+      .section,
+      .footer {
+        padding: 22px 20px;
+      }
+
+      .topbar {
+        padding: 12px;
+        top: 12px;
+      }
+
+      .interest-grid,
+      .facts-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .entry-head,
+      .skill-row {
+        grid-template-columns: 1fr;
+        display: grid;
+      }
+
+      .entry-head {
+        gap: 10px;
+      }
+
+      .date-tag {
+        justify-self: start;
+      }
+
+      .skill-label {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+    }
+
+  </style>
 </head>
-<body class="site-locked">
+<body>
   <div class="page-shell">
     <aside class="sidebar">
       <div class="sidebar-inner">
@@ -51,32 +719,10 @@
             <em>Major Rank</em>
           </div>
         </div>
-
       </div>
     </aside>
 
-
     <main class="main">
-      <section class="gate-panel" id="gate-panel">
-        <p class="section-kicker">访问控制 / Access</p>
-        <h2>输入密码查看完整主页</h2>
-        <p class="zh-text">左侧为公开信息，包括头像、学校、联系方式与基本学业信息。右侧详细内容已加轻量密码保护，仅在输入密码或使用教师专属链接后显示。</p>
-        <p class="en-text">The sidebar remains public. The detailed profile on the right is protected and will appear after entering the password or opening the teacher access link.</p>
-        <div class="gate-box">
-          <label for="profile-password" class="gate-label">访问密码 / Password</label>
-          <div class="gate-form">
-            <input id="profile-password" class="gate-input" type="password" placeholder="请输入访问密码" />
-            <button id="unlock-btn" class="gate-button" type="button">进入 / Unlock</button>
-          </div>
-          <p id="gate-message" class="gate-message">请输入密码查看完整内容。</p>
-        </div>
-        <div class="gate-tip">
-          <p class="zh-text small">教师专属链接说明 你可以在发邮件时使用带有 <code>?access=...</code> 参数的专属链接。打开后会自动进入完整页面，无需再次输入密码。</p>
-          <p class="en-text small">For faculty outreach, you may share a special link with an <code>?access=...</code> token so the full page opens directly.</p>
-        </div>
-      </section>
-      <div id="protected-content" class="protected-content">
-
       <header class="topbar">
         <nav class="page-nav">
           <a href="#about">简介 About</a>
@@ -89,6 +735,7 @@
           <a href="#skills">技能 Skills</a>
         </nav>
       </header>
+
       <section id="about" class="section hero-section">
         <p class="section-kicker">简介 / About</p>
         <h2>面向保研套磁的简洁学术主页</h2>
@@ -367,75 +1014,7 @@
         <p class="zh-text">© 2026 向鹏睿。该主页主要用于学术交流与研究生申请展示。</p>
         <p class="en-text">© 2026 Pengrui Xiang. This homepage is built for academic outreach and graduate applications.</p>
       </footer>
-      </div>
     </main>
   </div>
-  <script>
-    const ACCESS_PASSWORD = "bjut-xpr-2026";
-    const ACCESS_TOKEN = "7f3k9m2q8x1p6d4";
-    const SESSION_KEY = "xpr_profile_unlocked_v1";
-
-    const bodyEl = document.body;
-    const gatePanel = document.getElementById("gate-panel");
-    const protectedContent = document.getElementById("protected-content");
-    const passwordInput = document.getElementById("profile-password");
-    const unlockBtn = document.getElementById("unlock-btn");
-    const gateMessage = document.getElementById("gate-message");
-
-    function setLockedState() {
-      bodyEl.classList.remove("site-unlocked");
-      bodyEl.classList.add("site-locked");
-      if (passwordInput) passwordInput.focus();
-    }
-
-    function setUnlockedState(fromToken = false) {
-      bodyEl.classList.remove("site-locked");
-      bodyEl.classList.add("site-unlocked");
-      sessionStorage.setItem(SESSION_KEY, "1");
-      if (fromToken) {
-        const cleanUrl = window.location.origin + window.location.pathname + window.location.hash;
-        window.history.replaceState({}, document.title, cleanUrl);
-      }
-    }
-
-    function showMessage(text, ok = false) {
-      gateMessage.textContent = text;
-      gateMessage.classList.toggle("success", ok);
-      gateMessage.classList.toggle("error", !ok);
-    }
-
-    function tryUnlockByPassword() {
-      const value = passwordInput.value.trim();
-      if (!value) {
-        showMessage("请输入访问密码。");
-        return;
-      }
-      if (value === ACCESS_PASSWORD) {
-        showMessage("验证成功，正在进入完整页面。", true);
-        setUnlockedState(false);
-      } else {
-        showMessage("密码不正确，请重新输入。");
-      }
-    }
-
-    unlockBtn.addEventListener("click", tryUnlockByPassword);
-    passwordInput.addEventListener("keydown", (event) => {
-      if (event.key === "Enter") {
-        event.preventDefault();
-        tryUnlockByPassword();
-      }
-    });
-
-    const params = new URLSearchParams(window.location.search);
-    const teacherToken = params.get("access");
-
-    if (sessionStorage.getItem(SESSION_KEY) === "1") {
-      setUnlockedState(false);
-    } else if (teacherToken && teacherToken === ACCESS_TOKEN) {
-      setUnlockedState(true);
-    } else {
-      setLockedState();
-    }
-  </script>
 </body>
 </html>
