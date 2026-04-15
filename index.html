@@ -756,6 +756,62 @@
       margin-top: 8px;
     }
 
+
+    .edu-groups {
+      display: grid;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .edu-group {
+      border: 1px solid rgba(36,71,109,0.10);
+      border-radius: 18px;
+      padding: 16px 18px 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(247,249,252,0.98));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.72);
+    }
+
+    .edu-group-title {
+      margin: 0 0 12px;
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: #1d2a3a;
+      line-height: 1.4;
+    }
+
+    .edu-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+    }
+
+    .edu-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,250,253,0.98));
+      border: 1px solid rgba(36,71,109,0.10);
+      border-radius: 16px;
+      padding: 14px 14px 12px;
+      box-shadow: var(--shadow-soft);
+      min-height: 94px;
+    }
+
+    .edu-card strong {
+      display: block;
+      font-size: 1rem;
+      line-height: 1.35;
+      margin-bottom: 6px;
+      color: #152638;
+      font-weight: 700;
+    }
+
+    .edu-card span,
+    .edu-card em {
+      display: block;
+      font-style: normal;
+      font-size: 0.86rem;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
     .skills-table {
       border: 1px solid var(--line);
       border-radius: 20px;
@@ -839,11 +895,14 @@
         padding: 12px;
       }
 
+
       .interest-grid,
       .facts-grid,
-      .paper-sections {
+      .paper-sections,
+      .edu-card-grid {
         grid-template-columns: 1fr;
       }
+
 
       .entry-head,
       .skill-row {
@@ -936,16 +995,65 @@
             </div>
             <span class="date-tag">本科在读 / Undergraduate</span>
           </div>
-          <ul class="detail-list">
-            <li>
-              <span class="zh-line">加权平均分 91.84，GPA 3.99 / 4.00，专业排名 8 / 66。</span>
-              <span class="en-line">Weighted average 91.84, GPA 3.99/4.00, ranked 8th out of 66 in the major.</span>
-            </li>
-            <li>
-              <span class="zh-line">主要课程包括 密码学 100，网络协议分析与设计 100，网络攻击与防护 99，数据结构与算法 98。</span>
-              <span class="en-line">Representative coursework includes Cryptography (100), Network Protocol Analysis and Design (100), Network Attack and Defense (99), and Data Structures and Algorithms (98).</span>
-            </li>
-          </ul>
+          <div class="edu-groups">
+            <div class="edu-group">
+              <p class="edu-group-title"><strong>学业概况 / Academic Summary</strong></p>
+              <div class="edu-card-grid">
+                <div class="edu-card">
+                  <strong>加权平均分 91.84</strong>
+                  <span>Weighted Average</span>
+                </div>
+                <div class="edu-card">
+                  <strong>GPA 3.99 / 4.00</strong>
+                  <span>Top academic record</span>
+                </div>
+                <div class="edu-card">
+                  <strong>专业排名 8 / 66</strong>
+                  <span>Major Rank</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="edu-group">
+              <p class="edu-group-title"><strong>主修课程 / Core Courses</strong></p>
+              <div class="edu-card-grid">
+                <div class="edu-card">
+                  <strong>密码学 100</strong>
+                  <span>Cryptography</span>
+                </div>
+                <div class="edu-card">
+                  <strong>网络协议分析与设计 100</strong>
+                  <span>Network Protocol Analysis and Design</span>
+                </div>
+                <div class="edu-card">
+                  <strong>网络攻击与防护 99</strong>
+                  <span>Network Attack and Defense</span>
+                </div>
+                <div class="edu-card">
+                  <strong>数据结构与算法 98</strong>
+                  <span>Data Structures and Algorithms</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="edu-group">
+              <p class="edu-group-title"><strong>校内工作 / Campus Roles</strong></p>
+              <div class="edu-card-grid">
+                <div class="edu-card">
+                  <strong>学校Morefun魔方社社长及创办人</strong>
+                  <span>Founder and President, Morefun Rubik's Cube Club</span>
+                </div>
+                <div class="edu-card">
+                  <strong>学院团委直属学生机构心缘志愿团部员</strong>
+                  <span>Member, Xinyuan Volunteer Group under the School Youth League Committee</span>
+                </div>
+                <div class="edu-card">
+                  <strong>学院新媒体中心技术部部员</strong>
+                  <span>Member, Technical Department of the School New Media Center</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </article>
       </section>
 
@@ -1232,8 +1340,8 @@
             <span class="pill level provincial">省级 / Provincial</span>
             <span class="pill prize first">一等奖 / First Prize</span>
           </div>
-          <p class="zh-text">参与数学建模、数据处理、结果可视化与论文撰写等完整竞赛流程。</p>
-          <p class="en-text">Participated in end-to-end work including mathematical modeling, data processing, visualization, and report writing.</p>
+          <p class="zh-text">针对A题研究基于多层次智能优化的烟幕干扰弹投放策略，担任编程手，清洗数据，采用蝙蝠算法等多种智能优化算法，使用Python及Matlab编写题目相关建模代码，完成建模结果统计图作图，与论文手共同完成论文写作，最终获得北京赛区一等奖。</p>
+          <p class="en-text">For Problem A, I studied a smoke-interference munition deployment strategy based on multi-level intelligent optimization, served as the programming member, cleaned the data, applied multiple intelligent optimization algorithms such as the bat algorithm, used Python and Matlab to implement the modeling code, completed the statistical visualization of the modeling results, and worked with the writing member to complete the paper. The team finally won the First Prize in the Beijing Division.</p>
         </article>
 
         <article class="entry-card">
@@ -1248,8 +1356,8 @@
             <span class="pill level provincial">省级 / Provincial</span>
             <span class="pill prize third">三等奖 / Third Prize</span>
           </div>
-          <p class="zh-text">参与比赛方案实现与调试，完成机器人相关任务的实战训练。</p>
-          <p class="en-text">Took part in implementation and debugging for hands-on robotics competition tasks.</p>
+          <p class="zh-text">参与月球探索赛道比赛，使用NoMachine等远程连接工具调试月球车机器人参数，提升机械臂抓取精度，最终获得北京赛区三等奖。</p>
+          <p class="en-text">Participated in the lunar exploration track, used remote connection tools such as NoMachine to debug the parameters of the lunar rover robot, improved the grasping precision of the robotic arm, and finally won the Third Prize in the Beijing Division.</p>
         </article>
 
         <article class="entry-card">
@@ -1264,8 +1372,8 @@
             <span class="pill level school">校级 / School-level</span>
             <span class="pill prize second">二等奖 / Second Prize</span>
           </div>
-          <p class="zh-text">参加程序设计竞赛训练与校内选拔，持续提升算法与编程能力。</p>
-          <p class="en-text">Joined programming contest training and campus-level selection, strengthening algorithmic problem-solving skills.</p>
+          <p class="zh-text">参与校内预选赛及亚洲预选赛，与队友共同完成程序设计项目</p>
+          <p class="en-text">Participated in the campus preliminary contest and the Asia regional preliminary contest, and worked with teammates to complete programming contest tasks.</p>
         </article>
 
         <article class="entry-card">
@@ -1310,8 +1418,8 @@
           </div>
           <div class="meta-pills">
           </div>
-          <p class="zh-text">完成信息安全方向竞赛准备与作品实践，相关经历已纳入整体竞赛履历。</p>
-          <p class="en-text">Completed competition preparation and project practice in information security as part of the overall contest portfolio.</p>
+          <p class="zh-text">设计并实现了一种结合预处理与自动分类机制、基于颜色特征融合的轻量级违规图像检测方法，完成多组实验，确定方法阈值</p>
+          <p class="en-text">Designed and implemented a lightweight illegal-image detection method that combines preprocessing and an automatic classification mechanism based on fused color features, completed multiple groups of experiments, and determined the method thresholds.</p>
         </article>
       </section>
 
