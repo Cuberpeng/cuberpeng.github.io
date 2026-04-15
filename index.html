@@ -9,12 +9,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-
     :root {
       --bg: #f4f6fb;
       --bg-deep: #eef2f8;
-      --panel: rgba(255,255,255,0.88);
-      --panel-strong: rgba(255,255,255,0.96);
+      --panel: rgba(255,255,255,0.90);
+      --panel-strong: rgba(255,255,255,0.97);
       --text: #182230;
       --muted: #5c6777;
       --soft: #7c8798;
@@ -30,12 +29,12 @@
       --radius-lg: 24px;
       --radius-md: 18px;
       --radius-sm: 14px;
-      --sidebar-w: 340px;
-      --max-w: 1480px;
+      --sidebar-w: 400px;
+      --max-w: 1620px;
 
-      --first-bg: rgba(28, 92, 141, 0.12);
-      --first-border: rgba(28, 92, 141, 0.28);
-      --first-text: #1d5c8d;
+      --first-bg: rgba(132, 40, 63, 0.11);
+      --first-border: rgba(132, 40, 63, 0.26);
+      --first-text: #84283f;
 
       --second-bg: rgba(32, 114, 91, 0.12);
       --second-border: rgba(32, 114, 91, 0.26);
@@ -76,6 +75,38 @@
       --submitted-bg: rgba(75, 85, 99, 0.10);
       --submitted-border: rgba(75, 85, 99, 0.18);
       --submitted-text: #4b5563;
+
+      --level-prov-bg: rgba(29, 111, 89, 0.11);
+      --level-prov-border: rgba(29, 111, 89, 0.24);
+      --level-prov-text: #1f6f59;
+
+      --level-school-bg: rgba(63, 92, 138, 0.12);
+      --level-school-border: rgba(63, 92, 138, 0.24);
+      --level-school-text: #45618d;
+
+      --level-honor-bg: rgba(102, 92, 152, 0.11);
+      --level-honor-border: rgba(102, 92, 152, 0.24);
+      --level-honor-text: #675d98;
+
+      --prize-first-bg: rgba(132, 40, 63, 0.11);
+      --prize-first-border: rgba(132, 40, 63, 0.26);
+      --prize-first-text: #84283f;
+
+      --prize-second-bg: rgba(151, 113, 28, 0.13);
+      --prize-second-border: rgba(151, 113, 28, 0.27);
+      --prize-second-text: #8f6a18;
+
+      --prize-third-bg: rgba(82, 95, 118, 0.12);
+      --prize-third-border: rgba(82, 95, 118, 0.24);
+      --prize-third-text: #556173;
+
+      --prize-pending-bg: rgba(75, 85, 99, 0.10);
+      --prize-pending-border: rgba(75, 85, 99, 0.18);
+      --prize-pending-text: #4b5563;
+
+      --scholarship-bg: rgba(140, 106, 47, 0.12);
+      --scholarship-border: rgba(140, 106, 47, 0.24);
+      --scholarship-text: #8c6a2f;
     }
 
     * { box-sizing: border-box; }
@@ -95,6 +126,7 @@
         linear-gradient(180deg, #f8fafd 0%, var(--bg) 48%, var(--bg-deep) 100%);
       line-height: 1.75;
       letter-spacing: 0.003em;
+      overflow-x: hidden;
     }
 
     a {
@@ -115,10 +147,10 @@
     .page-shell {
       max-width: var(--max-w);
       margin: 0 auto;
-      padding: 28px;
+      padding: 14px 16px 20px;
       display: grid;
       grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
-      gap: 28px;
+      gap: 20px;
       align-items: start;
     }
 
@@ -129,7 +161,7 @@
 
     .sidebar {
       position: sticky;
-      top: 28px;
+      top: 14px;
     }
 
     .sidebar-inner,
@@ -147,7 +179,7 @@
 
     .sidebar-inner {
       border-radius: 28px;
-      padding: 30px;
+      padding: 28px;
       position: relative;
       overflow: hidden;
     }
@@ -171,16 +203,41 @@
     .topbar {
       position: relative;
       overflow: hidden;
+      scroll-margin-top: 88px;
+    }
+
+    .avatar-shell {
+      width: 120px;
+      height: 120px;
+      border-radius: 28px;
+      margin-bottom: 18px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.85);
+      box-shadow: 0 18px 34px rgba(18, 28, 45, 0.16);
+      background: linear-gradient(135deg, rgba(36,71,109,0.16), rgba(102,92,152,0.14));
     }
 
     .avatar {
-      width: 132px;
-      height: 132px;
-      border-radius: 28px;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      border: 1px solid rgba(255,255,255,0.8);
-      box-shadow: 0 18px 34px rgba(18, 28, 45, 0.16);
-      margin-bottom: 20px;
+      border-radius: inherit;
+    }
+
+    .avatar-fallback {
+      position: absolute;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-family: "Crimson Text", serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #18324d;
+      background:
+        radial-gradient(circle at 30% 25%, rgba(255,255,255,0.9), transparent 42%),
+        linear-gradient(135deg, rgba(255,255,255,0.72), rgba(233,239,247,0.94));
     }
 
     .sidebar-name {
@@ -221,8 +278,8 @@
     }
 
     .sidebar-block {
-      margin-top: 24px;
-      padding-top: 22px;
+      margin-top: 22px;
+      padding-top: 20px;
       border-top: 1px solid var(--line);
     }
 
@@ -246,15 +303,24 @@
 
     .sidebar-list li {
       display: grid;
-      grid-template-columns: 58px 1fr;
+      grid-template-columns: 58px minmax(0, 1fr);
       gap: 12px;
       align-items: start;
       padding: 8px 0;
-      font-size: 0.95rem;
+      font-size: 0.94rem;
+      min-width: 0;
     }
 
     .sidebar-list span {
       color: var(--soft);
+    }
+
+    .sidebar-list a {
+      min-width: 0;
+      display: block;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      line-height: 1.6;
     }
 
     .facts-grid {
@@ -297,15 +363,18 @@
     .main {
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 16px;
+      min-width: 0;
     }
 
     .topbar {
       position: sticky;
-      top: 20px;
-      z-index: 10;
+      top: 0;
+      z-index: 30;
       border-radius: 22px;
       padding: 14px 18px;
+      background: rgba(255,255,255,0.96);
+      box-shadow: 0 18px 34px rgba(18, 28, 45, 0.09);
     }
 
     .page-nav {
@@ -321,11 +390,12 @@
       padding: 9px 14px;
       border-radius: 999px;
       border: 1px solid rgba(36,71,109,0.10);
-      background: rgba(255,255,255,0.84);
+      background: rgba(255,255,255,0.88);
       color: #203040;
       font-size: 0.92rem;
       box-shadow: 0 4px 14px rgba(18, 28, 45, 0.04);
       transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+      white-space: nowrap;
     }
 
     .page-nav a:hover {
@@ -339,7 +409,7 @@
     .section,
     .footer {
       border-radius: 26px;
-      padding: 30px 32px;
+      padding: 26px 28px;
     }
 
     .hero-section {
@@ -480,7 +550,7 @@
       background: var(--first-bg);
       border-color: var(--first-border);
       color: var(--first-text);
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .pill.author.second {
@@ -543,10 +613,67 @@
       color: var(--icic-text);
     }
 
-    .pill.status.submitted {
+    .pill.status.submitted,
+    .pill.status.pending {
       background: var(--submitted-bg);
       border-color: var(--submitted-border);
       color: var(--submitted-text);
+    }
+
+    .pill.level.provincial {
+      background: var(--level-prov-bg);
+      border-color: var(--level-prov-border);
+      color: var(--level-prov-text);
+      font-weight: 600;
+    }
+
+    .pill.level.school {
+      background: var(--level-school-bg);
+      border-color: var(--level-school-border);
+      color: var(--level-school-text);
+      font-weight: 600;
+    }
+
+    .pill.level.honor {
+      background: var(--level-honor-bg);
+      border-color: var(--level-honor-border);
+      color: var(--level-honor-text);
+      font-weight: 600;
+    }
+
+    .pill.prize.first {
+      background: var(--prize-first-bg);
+      border-color: var(--prize-first-border);
+      color: var(--prize-first-text);
+      font-weight: 700;
+    }
+
+    .pill.prize.second {
+      background: var(--prize-second-bg);
+      border-color: var(--prize-second-border);
+      color: var(--prize-second-text);
+      font-weight: 700;
+    }
+
+    .pill.prize.third {
+      background: var(--prize-third-bg);
+      border-color: var(--prize-third-border);
+      color: var(--prize-third-text);
+      font-weight: 700;
+    }
+
+    .pill.prize.pending {
+      background: var(--prize-pending-bg);
+      border-color: var(--prize-pending-border);
+      color: var(--prize-pending-text);
+      font-weight: 600;
+    }
+
+    .pill.scholarship {
+      background: var(--scholarship-bg);
+      border-color: var(--scholarship-border);
+      color: var(--scholarship-text);
+      font-weight: 700;
     }
 
     .detail-list li,
@@ -569,6 +696,61 @@
     .zh-line,
     .en-line {
       display: block;
+    }
+
+    .paper-sections {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+      gap: 16px;
+      margin-top: 4px;
+    }
+
+    .paper-panel {
+      border: 1px solid rgba(36,71,109,0.10);
+      border-radius: 18px;
+      padding: 16px 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(247,249,252,0.98));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.72);
+    }
+
+    .paper-panel.contribution {
+      background: linear-gradient(180deg, rgba(255,251,245,0.96), rgba(249,246,239,0.98));
+      border-color: rgba(140,106,47,0.14);
+    }
+
+    .paper-panel-title {
+      margin: 0 0 10px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--soft);
+    }
+
+    .paper-panel .zh-text {
+      font-size: 0.98rem;
+      line-height: 1.82;
+    }
+
+    .paper-panel .en-text {
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    .contrib-list {
+      margin: 0;
+      padding-left: 1.1rem;
+      color: var(--text);
+    }
+
+    .contrib-list li {
+      margin: 0;
+      line-height: 1.78;
+      padding-left: 2px;
+    }
+
+    .contrib-list li + li {
+      margin-top: 8px;
     }
 
     .skills-table {
@@ -625,6 +807,10 @@
       .sidebar {
         position: static;
       }
+
+      .topbar {
+        top: 0;
+      }
     }
 
     @media (max-width: 760px) {
@@ -648,11 +834,11 @@
 
       .topbar {
         padding: 12px;
-        top: 12px;
       }
 
       .interest-grid,
-      .facts-grid {
+      .facts-grid,
+      .paper-sections {
         grid-template-columns: 1fr;
       }
 
@@ -675,14 +861,16 @@
         border-bottom: 1px solid var(--line);
       }
     }
-
   </style>
 </head>
 <body>
   <div class="page-shell">
     <aside class="sidebar">
       <div class="sidebar-inner">
-        <img src="assets/avatar.jpg?v=3" alt="向鹏睿" class="avatar" />
+        <div class="avatar-shell">
+          <img src="assets/avatar.jpg?v=3" alt="向鹏睿" class="avatar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="avatar-fallback">向</div>
+        </div>
         <h1 class="sidebar-name">向鹏睿</h1>
         <p class="sidebar-name-en">Pengrui Xiang</p>
         <p class="sidebar-role">北京工业大学计算机学院 信息安全实验班本科生</p>
@@ -693,7 +881,6 @@
           <ul class="sidebar-list">
             <li><span>邮箱</span><a href="mailto:xiangpengrui@emails.bjut.edu.cn">xiangpengrui@emails.bjut.edu.cn</a></li>
             <li><span>GitHub</span><a href="https://github.com/Cuberpeng" target="_blank" rel="noreferrer">github.com/Cuberpeng</a></li>
-            <li><span>简历</span><a href="assets/Xiang_Pengrui_CV.docx" target="_blank" rel="noreferrer">下载简历 / Download CV</a></li>
           </ul>
         </div>
 
@@ -725,7 +912,6 @@
     <main class="main">
       <header class="topbar">
         <nav class="page-nav">
-          <a href="#about">简介 About</a>
           <a href="#education">教育背景 Education</a>
           <a href="#interests">研究方向 Interests</a>
           <a href="#research">研究工作 Research</a>
@@ -735,18 +921,6 @@
           <a href="#skills">技能 Skills</a>
         </nav>
       </header>
-
-      <section id="about" class="section hero-section">
-        <p class="section-kicker">简介 / About</p>
-        <h2>面向保研套磁的简洁学术主页</h2>
-        <p class="zh-text">
-          我目前是北京工业大学计算机学院信息安全实验班本科生，正在准备保研，主要关注<strong>大模型安全、多模态安全、拒答行为校准、红队测试与视觉语言学习</strong>。
-          我希望在研究生阶段继续围绕具有机制性与实验性的课题开展研究，尤其关注能够把问题定义、方法设计与实验验证结合起来的方向。
-        </p>
-        <p class="en-text">
-          I am an undergraduate student in Information Security at Beijing University of Technology. My recent work focuses on LLM safety, multimodal safety, refusal calibration, red teaming, and vision-language learning. I hope to pursue graduate research on topics that combine clear problem formulation, mechanism design, and rigorous experimentation.
-        </p>
-      </section>
 
       <section id="education" class="section">
         <p class="section-kicker">教育背景 / Education</p>
@@ -765,8 +939,8 @@
               <span class="en-line">Weighted average 91.84, GPA 3.99/4.00, ranked 8th out of 66 in the major.</span>
             </li>
             <li>
-              <span class="zh-line">主要课程包括 数据结构与算法 98，计算机组成原理 94，信息内容安全 94，计算机网络 92。</span>
-              <span class="en-line">Representative coursework includes Data Structures and Algorithms, Computer Organization, Information Content Security, and Computer Networks.</span>
+              <span class="zh-line">主要课程包括 密码学 100，网络协议分析与设计 100，网络攻击与防护 99，数据结构与算法 98。</span>
+              <span class="en-line">Representative coursework includes Cryptography (100), Network Protocol Analysis and Design (100), Network Attack and Defense (99), and Data Structures and Algorithms (98).</span>
             </li>
           </ul>
         </article>
@@ -803,11 +977,10 @@
         </div>
       </section>
 
+      
       <section id="research" class="section">
         <p class="section-kicker">研究工作 / Research</p>
-        <h2>代表性研究项目</h2>
-        <p class="section-note zh-text">以下研究条目保留中文主题说明，并使用英文补充研究内容。考虑到论文尚未正式发表，这里不直接展示论文标题。</p>
-        <p class="section-note en-text">The following entries present project themes instead of unpublished paper titles, with bilingual descriptions and highlighted submission information.</p>
+        <h2>代表性科研论文</h2>
 
         <article class="paper-card">
           <div class="entry-head">
@@ -823,8 +996,32 @@
             <span class="pill status submitted">已投稿 / Submitted</span>
             <span class="pill ccf a">CCF A</span>
           </div>
-          <p class="zh-text">围绕多模态大模型中的安全遗忘问题展开研究，重点关注如何在抑制有害行为的同时减少对良性样本的过度拒答。我主要参与实验设计、云端训练、图表绘制与数据分析。</p>
-          <p class="en-text">This project studies selective safety unlearning for multimodal models, with emphasis on reducing harmful behavior while preserving benign utility. I contributed to experiment design, cloud-based training, figure production, and empirical analysis.</p>
+          
+          <div class="paper-sections">
+            <div class="paper-panel">
+              <p class="paper-panel-title">工作介绍 / Work Overview</p>
+              <p class="zh-text">该工作聚焦多模态大模型中的安全遗忘问题。现有方法常因施加过于平均的遗忘压力而带来过度拒答，或难以泛化到新的图文风险组合。研究将安全干预前移到图文表征融合的关键位置，根据样本中的可见证据估计风险强度，仅抑制与风险高度相关的表示方向，以兼顾安全性、可用性与跨场景泛化。</p>
+              <p class="en-text">This work studies safety unlearning in multimodal large language models. Existing methods often apply overly uniform forgetting pressure, which can cause over-refusal, or fail to generalize to new image-text risk combinations. The study shifts safety intervention to the key stage where visual and textual representations are fused, estimates risk intensity from observable evidence in each sample, and suppresses only the directions most strongly associated with risk, aiming to balance safety, usability, and cross-scenario generalization.</p>
+            </div>
+            <div class="paper-panel contribution">
+              <p class="paper-panel-title">核心贡献 / Core Contributions</p>
+              <ul class="contrib-list">
+                <li>
+                  <span class="zh-line">阅读大模型安全对齐、跨模态风险最新的论文，确定课题的创新点。</span>
+                  <span class="en-line">Reviewed recent papers on safety alignment and cross-modal risk in large models, and helped identify the innovation point of the project.</span>
+                </li>
+                <li>
+                  <span class="zh-line">租用云端服务器进行实验，和组员实时沟通并调整实验方案。</span>
+                  <span class="en-line">Used cloud servers to run experiments, communicated with teammates in real time, and adjusted the experimental plan.</span>
+                </li>
+                <li>
+                  <span class="zh-line">绘制数据图表，分析实验数据，撰写论文。</span>
+                  <span class="en-line">Produced figures, analyzed experimental results, and contributed to the paper writing.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
         </article>
 
         <article class="paper-card">
@@ -841,8 +1038,32 @@
             <span class="pill status submitted">已投稿 / Submitted</span>
             <span class="pill ccf c">CCF C</span>
           </div>
-          <p class="zh-text">该项目研究良性多轮对话历史对模型拒答行为的影响，关注安全请求在特定上下文下被错误拒答的问题。我完成了 Python 实验实现、方法设计迭代、绘图、数据分析与全文撰写。</p>
-          <p class="en-text">This project investigates history-induced refusal drift in aligned language models. I built the Python pipeline, refined the methodology, and completed the full analysis and writing as the first author.</p>
+          
+          <div class="paper-sections">
+            <div class="paper-panel">
+              <p class="paper-panel-title">工作介绍 / Work Overview</p>
+              <p class="zh-text">该工作研究安全对齐模型在多轮对话中的过度拒答问题。模型在单轮场景下可能表现正常，但在前文出现良性审查、风险讨论等历史后，同一安全请求也可能被错误拒答。针对这一现象，研究通过构建多历史对比样本并与无历史情形进行锚定比较，校正由对话历史带来的额外保守偏移，在减少误拒的同时尽量保持对危险请求的拒答能力与跨历史一致性。</p>
+              <p class="en-text">This work investigates over-refusal in safety-aligned models under multi-turn dialogue history. A model may behave normally in single-turn settings, yet incorrectly refuse the same safe request after benign history such as compliance review or risk discussion appears in the context. To address this issue, the study builds grouped samples across multiple benign histories and compares them against a no-history anchor, then calibrates the extra conservative bias introduced by dialogue history while preserving refusal on genuinely unsafe requests and improving cross-history consistency.</p>
+            </div>
+            <div class="paper-panel contribution">
+              <p class="paper-panel-title">核心贡献 / Core Contributions</p>
+              <ul class="contrib-list">
+                <li>
+                  <span class="zh-line">阅读大模型拒答行为最新的论文，确定以良性对话历史背景作为课题的切入点。</span>
+                  <span class="en-line">Reviewed recent papers on refusal behavior in large models, and determined benign dialogue history as the entry point of the project.</span>
+                </li>
+                <li>
+                  <span class="zh-line">使用Python编写实验代码，租用云服务器进行实验，根据实验结果调整实验方案和方法设计，完成项目实验。</span>
+                  <span class="en-line">Implemented the experimental pipeline in Python, used cloud servers to run experiments, and adjusted the experimental plan and method design based on the results.</span>
+                </li>
+                <li>
+                  <span class="zh-line">绘制流程图及实验结果图，分析实验数据，撰写论文全文。</span>
+                  <span class="en-line">Produced the workflow and result figures, analyzed the experimental data, and completed the full paper writing.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
         </article>
 
         <article class="paper-card">
@@ -857,10 +1078,35 @@
             <span class="pill author third">第三作者 / Third Author</span>
             <span class="pill venue ijcai">IJCAI 2026</span>
             <span class="pill status submitted">已投稿 / Submitted</span>
+            <span class="pill status pending">已通过第一轮审稿 / First-Round Review Passed</span>
             <span class="pill ccf a">CCF A(at submission)</span>
           </div>
-          <p class="zh-text">该项目将红队测试看作预算受限下的失败发现问题，重点提升在有限查询预算中尽早发现多样化违规样例的能力。我使用 Python 结合 API 对四个大模型完成实验，并参与数据分析与图表制作。</p>
-          <p class="en-text">This work reframes red teaming as budget-constrained failure discovery. I participated in experiments across four large models using Python and API-based evaluation, and contributed to analysis and visualization.</p>
+          
+          <div class="paper-sections">
+            <div class="paper-panel">
+              <p class="paper-panel-title">工作介绍 / Work Overview</p>
+              <p class="zh-text">该工作面向大模型安全红队测试中的预算受限问题。许多方法更关注最终攻击成功率，却容易在有限查询下反复命中少数脆弱点，难以及早发现更多类型的安全缺陷。为此，研究将红队测试重新表述为预算约束下的失败发现问题，更强调早期发现效率与风险覆盖范围，并通过结合目标特征判断、历史经验利用和多样性导向的策略搜索，提高有限预算下的测试效率。</p>
+              <p class="en-text">This work focuses on the budget-constrained setting of safety red teaming for large language models. Many existing methods emphasize final attack success rate, but under limited queries they often keep hitting a small number of weak points and struggle to discover broader categories of safety failures early. The study therefore reframes red teaming as a failure-discovery problem under budget constraints, with stronger emphasis on early discovery efficiency and risk coverage, and improves testing efficiency by combining target characterization, experience reuse, and diversity-oriented strategy search.</p>
+            </div>
+            <div class="paper-panel contribution">
+              <p class="paper-panel-title">核心贡献 / Core Contributions</p>
+              <ul class="contrib-list">
+                <li>
+                  <span class="zh-line">阅读大模型越狱攻击最新的论文，确定课题的创新点。</span>
+                  <span class="en-line">Reviewed recent papers on jailbreak attacks against large models, and helped identify the innovation point of the project.</span>
+                </li>
+                <li>
+                  <span class="zh-line">使用Python编写实验代码，利用API调用四个大模型，带领团队完成项目实验。</span>
+                  <span class="en-line">Implemented the experimental code in Python, used APIs to evaluate four large models, and led the team to complete the project experiments.</span>
+                </li>
+                <li>
+                  <span class="zh-line">分析数据，撰写实验分析，讨论完成论文。</span>
+                  <span class="en-line">Analyzed the data, wrote the experimental analysis, and discussed and completed the paper.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
         </article>
 
         <article class="paper-card">
@@ -877,8 +1123,28 @@
             <span class="pill status submitted">已投稿 / Submitted</span>
             <span class="pill ccf a">CCF A</span>
           </div>
-          <p class="zh-text">该项目关注遥感场景下视觉语言预训练中的层次语义建模问题，探索从全局场景到局部细粒度区域的统一建模方式。我主要参与实验迭代、图表设计与论文撰写。</p>
-          <p class="en-text">This project explores hierarchical semantic learning for remote sensing vision-language pre-training. I contributed to experiment iteration, figure design, and project writing.</p>
+          
+          <div class="paper-sections">
+            <div class="paper-panel">
+              <p class="paper-panel-title">工作介绍 / Work Overview</p>
+              <p class="zh-text">该工作面向遥感视觉语言学习中的层次语义建模难题。由于遥感图像分辨率高、目标密集且尺度变化明显，仅依赖整图与全局文本对齐，往往难以同时刻画场景层级与局部细节。针对这一问题，研究构建了从全局场景到局部区域的多粒度监督方式，并同步增强视觉编码器对局部纹理和远距离空间关系的建模能力，以提升表示质量和跨数据集泛化表现。</p>
+              <p class="en-text">This work targets the challenge of hierarchical semantic modeling in remote sensing vision-language learning. Because remote sensing images are high-resolution, densely structured, and contain large scale variation, relying only on whole-image and global-text alignment is often insufficient to capture both scene-level semantics and local details. To address this, the study builds a multi-granularity supervision scheme from global scenes to local regions, while also strengthening the visual encoder for local texture modeling and long-range spatial relationship modeling, thereby improving representation quality and cross-dataset generalization.</p>
+            </div>
+            <div class="paper-panel contribution">
+              <p class="paper-panel-title">核心贡献 / Core Contributions</p>
+              <ul class="contrib-list">
+                <li>
+                  <span class="zh-line">设计实验方案，租用云端服务器进行实验，和组员实时沟通并调整实验方案。</span>
+                  <span class="en-line">Designed the experimental plan, used cloud servers to run experiments, and communicated with teammates in real time to adjust the plan.</span>
+                </li>
+                <li>
+                  <span class="zh-line">绘制论文流程图，共同撰写论文。</span>
+                  <span class="en-line">Produced the workflow figure for the paper and contributed to the paper writing together with the team.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
         </article>
       </section>
 
@@ -902,7 +1168,7 @@
           <div class="entry-head">
             <div>
               <h3>CCF SPP 新芽训练计划</h3>
-              <p class="subline-en">CCF SPP Young Researchers Training Program</p>
+              <p class="subline-en">China Computer Federation Student Pilot Program GrokCV Sprouts Training Program</p>
             </div>
             <span class="date-tag">2025.02 – 2025.05</span>
           </div>
@@ -949,42 +1215,154 @@
 
       <section id="activities" class="section">
         <p class="section-kicker">竞赛与实践 / Activities</p>
-        <h2>代表性竞赛与技术实践</h2>
-        <div class="entry-card">
-          <ul class="detail-list">
-            <li>
-              <span class="zh-line">全国大学生数学建模竞赛，北京赛区一等奖，负责建模编程、数据处理、作图与论文撰写。</span>
-              <span class="en-line">First Prize in the Beijing Division of the Mathematical Modeling Competition, focusing on modeling code, data processing, visualization, and paper writing.</span>
-            </li>
-            <li>
-              <span class="zh-line">中国机器人及人工智能大赛，北京赛区三等奖，参与月球探索赛道调试并优化机械臂抓取精度。</span>
-              <span class="en-line">Third Prize in the Beijing Division of the China Robot and Artificial Intelligence Competition, with work on lunar exploration debugging and robotic-arm precision.</span>
-            </li>
-            <li>
-              <span class="zh-line">ACM 国际大学生程序设计竞赛，参加校内预选赛及区域赛准备，持续强化算法能力。</span>
-              <span class="en-line">Participated in ICPC preparation and campus selection contests to strengthen algorithmic problem-solving skills.</span>
-            </li>
-            <li>
-              <span class="zh-line">全国大学生信息安全竞赛，设计并实现基于颜色特征融合的轻量级违规图像检测方法。</span>
-              <span class="en-line">Designed a lightweight illegal-image detection method based on fused color features for the information security competition.</span>
-            </li>
-          </ul>
-        </div>
+        <h2>竞赛获奖与技术实践</h2>
+
+        <article class="entry-card">
+          <div class="entry-head">
+            <div>
+              <h3>全国大学生数学建模竞赛</h3>
+              <p class="subline-en">National College Students Mathematical Modeling Competition</p>
+            </div>
+            <span class="date-tag">2025.09</span>
+          </div>
+          <div class="meta-pills">
+            <span class="pill level provincial">省级 / Provincial</span>
+            <span class="pill prize first">一等奖 / First Prize</span>
+          </div>
+          <p class="zh-text">参与数学建模、数据处理、结果可视化与论文撰写等完整竞赛流程。</p>
+          <p class="en-text">Participated in end-to-end work including mathematical modeling, data processing, visualization, and report writing.</p>
+        </article>
+
+        <article class="entry-card">
+          <div class="entry-head">
+            <div>
+              <h3>第二十七届中国机器人及人工智能大赛</h3>
+              <p class="subline-en">The 27th China Robot and Artificial Intelligence Competition</p>
+            </div>
+            <span class="date-tag">2025.06</span>
+          </div>
+          <div class="meta-pills">
+            <span class="pill level provincial">省级 / Provincial</span>
+            <span class="pill prize third">三等奖 / Third Prize</span>
+          </div>
+          <p class="zh-text">参与比赛方案实现与调试，完成机器人相关任务的实战训练。</p>
+          <p class="en-text">Took part in implementation and debugging for hands-on robotics competition tasks.</p>
+        </article>
+
+        <article class="entry-card">
+          <div class="entry-head">
+            <div>
+              <h3>ACM-ICPC 国际大学生程序设计竞赛</h3>
+              <p class="subline-en">ACM-ICPC International Collegiate Programming Contest</p>
+            </div>
+            <span class="date-tag">2025.05</span>
+          </div>
+          <div class="meta-pills">
+            <span class="pill level school">校级 / School-level</span>
+            <span class="pill prize second">二等奖 / Second Prize</span>
+          </div>
+          <p class="zh-text">参加程序设计竞赛训练与校内选拔，持续提升算法与编程能力。</p>
+          <p class="en-text">Joined programming contest training and campus-level selection, strengthening algorithmic problem-solving skills.</p>
+        </article>
+
+        <article class="entry-card">
+          <div class="entry-head">
+            <div>
+              <h3>中国高校计算机大赛团队程序天梯赛</h3>
+              <p class="subline-en">China Collegiate Computing Contest, Team Programming Ladder Tournament</p>
+            </div>
+            <span class="date-tag">2024.10</span>
+          </div>
+          <div class="meta-pills">
+            <span class="pill level school">校级 / School-level</span>
+            <span class="pill prize second">二等奖 / Second Prize</span>
+          </div>
+          <p class="zh-text">参与团队程序设计竞赛，在限时环境下完成算法求解与协同配合。</p>
+          <p class="en-text">Competed in team programming settings with time-constrained algorithm solving and collaboration.</p>
+        </article>
+
+        <article class="entry-card">
+          <div class="entry-head">
+            <div>
+              <h3>中国高校计算机大赛网络技术挑战赛</h3>
+              <p class="subline-en">China Collegiate Computing Contest, Network Technology Challenge</p>
+            </div>
+            <span class="date-tag">2025.10</span>
+          </div>
+          <div class="meta-pills">
+            <span class="pill level school">校级 / School-level</span>
+            <span class="pill prize third">三等奖 / Third Prize</span>
+          </div>
+          <p class="zh-text">围绕网络技术方向开展竞赛训练，完成网络配置与问题分析相关实践。</p>
+          <p class="en-text">Worked on network-technology competition tasks involving configuration practice and technical analysis.</p>
+        </article>
+
+        <article class="entry-card">
+          <div class="entry-head">
+            <div>
+              <h3>全国大学生信息安全竞赛</h3>
+              <p class="subline-en">National College Students Information Security Competition</p>
+            </div>
+            <span class="date-tag">2025.07</span>
+          </div>
+          <div class="meta-pills">
+            <span class="pill status pending">赛事经历 / Participation</span>
+            <span class="pill prize pending">结果待补充 / Result Not Listed</span>
+          </div>
+          <p class="zh-text">完成信息安全方向竞赛准备与作品实践，相关经历已纳入整体竞赛履历。</p>
+          <p class="en-text">Completed competition preparation and project practice in information security as part of the overall contest portfolio.</p>
+        </article>
       </section>
 
       <section id="awards" class="section">
         <p class="section-kicker">奖项荣誉 / Awards</p>
-        <h2>主要奖项与荣誉</h2>
-        <div class="entry-card">
-          <ul class="detail-list award-list">
-            <li><span class="zh-line">2025 年北京工业大学校级三好学生</span><span class="en-line">Merit Student, Beijing University of Technology</span></li>
-            <li><span class="zh-line">2024 年、2025 年北京工业大学校级学习优秀奖奖学金</span><span class="en-line">Academic Excellence Scholarship, BJUT</span></li>
-            <li><span class="zh-line">2025 年北京工业大学校级创新创业奖</span><span class="en-line">Innovation and Entrepreneurship Award, BJUT</span></li>
-            <li><span class="zh-line">全国大学生数学建模竞赛北京赛区一等奖</span><span class="en-line">First Prize, Beijing Division, National College Students Mathematical Modeling Competition</span></li>
-            <li><span class="zh-line">中国机器人及人工智能大赛北京赛区三等奖</span><span class="en-line">Third Prize, Beijing Division, China Robot and Artificial Intelligence Competition</span></li>
-            <li><span class="zh-line">程序设计类校内选拔与竞赛奖项若干</span><span class="en-line">Additional awards in programming and algorithm contests</span></li>
-          </ul>
-        </div>
+        <h2>校内荣誉与奖学金</h2>
+
+        <article class="entry-card">
+          <div class="entry-head">
+            <div>
+              <h3>北京工业大学校级三好学生</h3>
+              <p class="subline-en">Merit Student, Beijing University of Technology</p>
+            </div>
+            <span class="date-tag">2025</span>
+          </div>
+          <div class="meta-pills">
+            <span class="pill level honor">校级荣誉 / School Honor</span>
+          </div>
+          <p class="zh-text">综合学业表现、科研训练与实践表现获得校级荣誉表彰。</p>
+          <p class="en-text">Received university-level recognition based on academic performance, research training, and practical engagement.</p>
+        </article>
+
+        <article class="entry-card">
+          <div class="entry-head">
+            <div>
+              <h3>北京工业大学学习优秀奖奖学金</h3>
+              <p class="subline-en">Academic Excellence Scholarship, Beijing University of Technology</p>
+            </div>
+            <span class="date-tag">2024 · 2025</span>
+          </div>
+          <div class="meta-pills">
+            <span class="pill scholarship">奖学金 / Scholarship</span>
+            <span class="pill level honor">校级奖励 / School Award</span>
+          </div>
+          <p class="zh-text">连续两年获得学习优秀奖奖学金，体现稳定的课程成绩与综合学习能力。</p>
+          <p class="en-text">Awarded the Academic Excellence Scholarship in consecutive years, reflecting consistently strong coursework performance.</p>
+        </article>
+
+        <article class="entry-card">
+          <div class="entry-head">
+            <div>
+              <h3>北京工业大学创新创业奖</h3>
+              <p class="subline-en">Innovation and Entrepreneurship Award, Beijing University of Technology</p>
+            </div>
+            <span class="date-tag">2025</span>
+          </div>
+          <div class="meta-pills">
+            <span class="pill level honor">校级奖励 / School Award</span>
+          </div>
+          <p class="zh-text">因创新实践与项目参与表现获得校级创新创业奖。</p>
+          <p class="en-text">Received university-level recognition for innovation practice and project participation.</p>
+        </article>
       </section>
 
       <section id="skills" class="section">
