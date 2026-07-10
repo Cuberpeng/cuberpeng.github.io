@@ -684,8 +684,15 @@
       color: var(--icic-text);
     }
 
+    .pill.venue.aaai {
+      background: var(--ijcai-bg);
+      border-color: var(--ijcai-border);
+      color: var(--ijcai-text);
+    }
+
     .pill.status.submitted,
-    .pill.status.pending {
+    .pill.status.pending,
+    .pill.status.planned {
       background: var(--submitted-bg);
       border-color: var(--submitted-border);
       color: var(--submitted-text);
@@ -1182,11 +1189,25 @@
             </div>
             <span class="date-tag">2026.01 – 2026.03</span>
           </div>
+          <p class="paper-full-title">EviGuard: Evidence-Guided Connector Intervention for Cross-Modal Safety Unlearning in Multimodal LLMs</p>
           <div class="meta-pills">
             <span class="pill author second">第二作者 / Second Author</span>
             <span class="pill venue mm">ACM MM 2026</span>
             <span class="pill ccf a">CCF A</span>
-            <span class="pill status submitted">审稿中 / Under Review</span>
+            <span class="pill status accepted">已录用 / Accepted</span>
+          </div>
+
+          <div class="paper-actions">
+            <a class="paper-btn" href="EviGuard.pdf" download aria-label="下载 ACM MM 2026 论文 PDF">
+              <svg class="pdf-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 2h8l4 4v16H6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                <path d="M14 2v5h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                <path d="M8.2 16.8h7.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M8.2 13.4h7.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M8.2 10h3.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+              <span>PDF</span><small>下载论文 / Paper</small>
+            </a>
           </div>
           
           <div class="paper-sections">
@@ -1338,9 +1359,9 @@
           </div>
           <div class="meta-pills">
             <span class="pill author fourth">第四作者 / Fourth Author</span>
-            <span class="pill venue mm">ACM MM 2026</span>
+            <span class="pill venue aaai">AAAI 2027</span>
             <span class="pill ccf a">CCF A</span>
-            <span class="pill status submitted">审稿中 / Under Review</span>
+            <span class="pill status planned">计划投稿 / Planned Submission</span>
           </div>
           
           <div class="paper-sections">
@@ -1606,7 +1627,7 @@
       </section>
 
       <footer class="footer">
-        <p class="en-text">© April 2026 Pengrui Xiang.</p>
+        <p class="en-text">© July 2026 Pengrui Xiang.</p>
       </footer>
     </main>
   </div>
