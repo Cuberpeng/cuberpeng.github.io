@@ -1,0 +1,8 @@
+GitHub Pages upload instructions
+
+1. Upload index.html, .nojekyll, and the entire assets folder to the ROOT of the Cuberpeng/cuberpeng.github.io repository.
+2. Do not upload the outer cuberpeng-github-pages-split folder itself.
+3. In Settings > Pages, choose: Deploy from a branch, main, /(root).
+4. Wait for the Pages deployment workflow to finish, then open https://cuberpeng.github.io/
+
+Every individual file in this package is below GitHub's 25 MB browser-upload limit.

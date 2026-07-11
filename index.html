@@ -1,0 +1,828 @@
+<!doctype html><html lang="en" data-language="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pengrui Xiang | Academic Homepage</title><meta name="description" content="Pengrui Xiang’s academic homepage: large language models, agents, multimodal learning, and trustworthy AI."><link rel="icon" href="assets/images/favicon.png"><style>
+:root{--accent:#ca6f6f;--text:#3c4047;--muted:#747982;--line:#e7e7e7;--soft:#f7f7f7;--max:1320px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff;color:var(--text);font-family:Inter,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:15px;line-height:1.68}a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}img{max-width:100%}.masthead{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);border-bottom:1px solid #ececec;backdrop-filter:blur(10px)}.masthead-inner{max-width:var(--max);margin:auto;padding:0 24px;min-height:68px;display:flex;align-items:center;gap:18px}.site-title{font-weight:750;font-size:1.12rem;color:#292d33;white-space:nowrap}.nav{margin-left:auto;display:flex;align-items:center;gap:4px;flex-wrap:wrap;justify-content:flex-end}.nav a{color:#474c54;font-weight:600;font-size:.86rem;padding:7px 8px;border-radius:7px}.nav a:hover{background:#fff3f3;color:var(--accent);text-decoration:none}.language-toggle-standalone{border:1px solid rgba(202,111,111,.38);background:#fff8f8;color:#a95353;border-radius:999px;padding:7px 12px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap}.menu-button{display:none;border:0;background:#f4f4f4;border-radius:8px;padding:9px 11px;font-size:18px}.site-main{max-width:var(--max);margin:0 auto;padding:38px 24px 45px;display:grid;grid-template-columns:250px minmax(0,1fr);gap:50px;align-items:start}.sidebar{position:sticky;top:94px}.author-avatar{width:184px;height:184px;border-radius:50%;overflow:hidden;margin:0 auto 18px;box-shadow:0 6px 20px rgba(0,0,0,.10)}.author-avatar img{width:100%;height:100%;object-fit:cover;object-position:center 16%}.author-name{font-size:1.48rem;margin:0 0 6px;color:#2c3036}.author-bio{color:#6d727a;margin:0 0 18px;line-height:1.55}.author-links{list-style:none;margin:0;padding:0}.author-links li{margin:9px 0}.author-links a{color:#4e535a;font-size:.92rem;display:flex;gap:9px;align-items:flex-start}.icon{width:18px;text-align:center;color:#898e95}.page{min-width:0}.page-content h2{font-size:1.55rem;margin:2.25rem 0 1.05rem;color:#2c3036;border-bottom:1px solid #e9e9e9;padding-bottom:.36rem}.page-content p{margin:.75rem 0}.page-content strong{color:#2f3339}.page-footer{background:#f4f4f4;border-top:1px solid #e6e6e6}.footer-inner{max-width:var(--max);margin:auto;padding:25px 24px;color:#73777e;font-size:.86rem}.experience-card{display:flex;background:#f9f9f9;border-radius:12px;padding:18px;box-shadow:0 4px 8px rgba(0,0,0,.05)}.experience-container{display:flex;flex-direction:column;gap:18px}.publication-card{display:flex;padding:10px;border:1.5px solid #ddd;border-radius:8px;background:#fff;margin-bottom:18px;color:#5f6368}.project-card{display:flex;padding:10px;border:1.5px solid #ddd;border-radius:8px;background:#fff;margin-bottom:18px;color:#5f6368}.pub-button-container{display:flex;gap:8px;margin:12px 0}.pub-button{border:1px solid #d7d7d7;background:#fff;padding:8px 13px;border-radius:999px;cursor:pointer}.pub-button.active{border-color:#ca6f6f;background:#fff5f5;color:#a95353}.full-publication-list{padding-left:1.2rem}.full-publication-list li{margin-bottom:14px}.pub-list-badge{display:inline-flex;padding:2px 8px;border-radius:999px;background:#eef4fb;color:#58708c;font-size:11px;font-weight:700}.pub-list-title{font-weight:700;color:#30343b}.news-list{list-style:none;padding:0;margin:0}.news-box{max-height:260px;overflow:auto;padding:10px 14px;background:#f7f7f7;border-radius:10px}.news-date{display:inline-block;min-width:72px;color:#ca6f6f}.award-list{padding-left:1.2rem}.award-list li{margin-bottom:8px}.award-list em{color:#ca6f6f;display:inline-block;min-width:88px}@media(max-width:980px){.menu-button{display:block;margin-left:auto}.nav{display:none;position:absolute;top:68px;left:0;right:0;background:#fff;padding:12px 18px;border-bottom:1px solid #eee}.nav.open{display:flex}.nav a{width:100%}.site-main{grid-template-columns:1fr}.sidebar{position:static;display:grid;grid-template-columns:110px 1fr;gap:18px}.author-avatar{width:110px;height:110px;margin:0}.author-links{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px 18px}.author-links li{margin:2px 0}}@media(max-width:620px){.site-main{padding:26px 16px}.site-title{font-size:.95rem}.language-toggle-standalone{padding:6px 9px}.sidebar{grid-template-columns:88px 1fr}.author-avatar{width:88px;height:88px}.page-content h2{font-size:1.35rem}}
+
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap');
+
+#news,
+    #experience,
+    #publications,
+    #projects,
+    #awards,
+    #talks {
+        scroll-margin-top: 80px;
+    }
+  
+      /* ===== News Scroll Box ===== */
+    .news-box {
+      max-height: 220px;
+      overflow-y: auto;
+      padding: 10px 14px;
+      background: #f7f7f7;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    
+    .news-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .news-list li {
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+    
+    .news-date {
+      display: inline-block;
+      min-width: 70px;
+      font-weight: 400;
+      color: #ca6f6f;
+    }
+  
+    .experience-card {
+        display: flex;
+        align-items: center;
+        background: #f9f9f9;
+        border-radius: 12px;
+        padding: 16px;
+        margin-bottom: 0px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .experience-card:hover {
+       
+        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    .experience-logo {
+        width: 60px;
+        height: 60px;
+        margin-right: 20px;
+        border-radius: 8px;
+        object-fit: contain;
+    }
+    .experience-info {
+        font-family: "Segoe UI", sans-serif;
+    }
+    .experience-info strong {
+        font-size: 1.1em;
+    }
+    .experience-info a {
+        text-decoration: none;
+        color: #ca6f6f;
+    }
+    .experience-container {
+        display: flex;
+        flex-direction: column; /* Stack cards vertically. */
+        gap: 20px; /* Keep spacing between cards. */
+    }
+    .experience-card {
+        box-sizing: border-box;
+    }
+    .publication-card {
+        display: flex;
+        align-items: center;
+        padding: 3px;
+        border: 1.5px solid #ddd;
+        border-radius: 8px;
+        background: #fff;
+        box-sizing: border-box;
+        margin-bottom: 20px; 
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        color: #5f6368;
+    }
+    .publication-card > div > strong,
+    .publication-card > div > div > strong {
+        color: #202124;
+    }
+    .publication-card i {
+        color: #6b7280;
+    }
+
+    .pub-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35em;
+        margin-left: 8px;
+        padding: 2px 8px;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 650;
+        line-height: 1.4;
+        letter-spacing: 0.01em;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid transparent;
+        background: rgba(107, 114, 128, 0.08);
+        color: #6b7280;
+    }
+
+    .pub-badge::before {
+        content: "";
+        width: 0.45em;
+        height: 0.45em;
+        border-radius: 999px;
+        background: currentColor;
+        opacity: 0.75;
+    }
+
+    .pub-badge--oral {
+        margin-left: 4px;
+        vertical-align: 2px;
+        color: #4c6a94;
+        background: rgba(131, 161, 199, 0.14);
+        border-color: rgba(131, 161, 199, 0.35);
+    }
+    .publication-card:hover {
+       
+        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+
+    .publication-card.featured {
+        border-color: #f5bba7;
+        background: #fef5f1;
+        box-shadow: 0 4px 8px rgba(242, 166, 120, 0.2);
+        z-index: 10;
+    }
+
+    .publication-card.featured:hover {
+        box-shadow: 0 8px 16px rgba(242, 166, 120, 0.4); 
+    }
+    
+    /*.publication-card.non-featured {*/
+        /*display: flex;*/
+    /*}*/
+    
+    .pub-button-container {
+        display: flex;
+        gap: 10px;
+        margin: 20px 0;
+        flex-wrap: wrap;
+    }
+    
+    .pub-button {
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        padding: 8px 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .pub-button:hover {
+        background-color: #e0e0e0;
+    }
+    
+    .pub-button.active {
+        background-color: #ca6f6f;
+        color: white;
+        border-color: #ca6f6f;
+    }
+
+      .publication-view[hidden] {
+        display: none !important;
+    }
+
+      #full-publications {
+        max-height: 380px;
+        overflow-y: auto;
+        padding-right: 8px;
+        margin-bottom: 24px;
+        scroll-behavior: smooth;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(185, 95, 61, 0.45) rgba(254, 245, 241, 0.7);
+    }
+
+    #full-publications::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    #full-publications::-webkit-scrollbar-track {
+        background: rgba(254, 245, 241, 0.7);
+        border-radius: 999px;
+    }
+
+    #full-publications::-webkit-scrollbar-thumb {
+        background: rgba(185, 95, 61, 0.45);
+        border-radius: 999px;
+    }
+
+    #full-publications::-webkit-scrollbar-thumb:hover {
+        background: rgba(185, 95, 61, 0.65);
+    }
+  
+    .full-publication-list {
+        margin: 0;
+        padding-left: 1.25rem;
+        color: #5f6368;
+        font-size: 15px;
+        line-height: 1.55;
+    }
+
+    .full-publication-list li {
+        margin-bottom: 14px;
+    }
+
+    .pub-list-badge {
+        display: inline-block;
+        margin-right: 6px;
+        padding: 2px 8px;
+        border-radius: 999px;
+        border: 1px solid rgba(245, 187, 167, 0.75);
+        background: #fef5f1;
+        color: #b95f3d;
+        font-size: 11px;
+        font-weight: 650;
+        line-height: 1.35;
+        vertical-align: 1px;
+        white-space: nowrap;
+    }
+
+    .full-publication-list .pub-list-title {
+        color: #202124;
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 1.45;
+        text-decoration: none !important;
+    }
+
+      .pub-list-authors {
+        color: #6b7280;
+        font-size: 13px;
+        font-style: italic;
+    }
+
+    .pub-list-authors > strong {
+        color: #202124;
+    }
+
+      .pub-list-authors a strong {
+        color: inherit;
+    }
+
+    .pub-list-note {
+        color: #c7774c;
+        font-style: italic;
+        font-weight: 650;
+    }
+
+    .pub-list-links {
+        white-space: nowrap;
+    }
+
+    .pub-list-links a {
+        margin-left: 4px;
+        color: #c7774c !important;
+        font-weight: 600;
+    }
+
+      .pub-list-links a:hover {
+        color: #b65f36 !important;
+    }
+
+    /* Projects cards: keep styles independent from publications */
+    .project-card {
+        display: flex;
+        align-items: center;
+        padding: 3px;
+        border: 1.5px solid #ddd;
+        border-radius: 8px;
+        background: #fff;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        color: #5f6368;
+    }
+
+    .project-card > div > strong,
+    .project-card > div > div > strong {
+        color: #202124;
+    }
+
+    .project-card i {
+        color: #6b7280;
+    }
+
+    .project-card:hover {
+        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+
+      @media (max-width: 720px) {
+        .publication-card,
+        .project-card {
+            align-items: stretch;
+            padding: 8px;
+        }
+
+        .publication-card > div,
+        .project-card > div {
+            flex-direction: column;
+            align-items: stretch !important;
+            width: 100%;
+        }
+
+        .publication-card .pub-media-rotator,
+        .project-card .pub-media-rotator {
+            width: 100% !important;
+            height: auto !important;
+            aspect-ratio: 16 / 9;
+            margin-right: 0 !important;
+            margin-bottom: 12px;
+        }
+
+        .publication-card .pub-media-rotator > img,
+        .project-card .pub-media-rotator > img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: contain;
+        }
+
+        .publication-card strong,
+        .project-card strong {
+            line-height: 1.35;
+        }
+
+        .full-publication-list {
+            padding-left: 1rem;
+        }
+
+        .pub-list-badge {
+            margin-bottom: 4px;
+        }
+    }
+        body {
+            background-color:	 #FFFFFF;
+            font-family: 'Arial Rounded MT Bold', 'Verdana', sans-serif;
+            font-size: 15px;
+        }
+        .main-heading {
+            font-family: 'Permanent Marker', cursive;
+            text-align: center;
+            color: #ca6f6f;
+        }
+        div.markdown-body a,a {
+            text-decoration: none !important;
+            color: #ca6f6f;
+            transition: all 0.3s ease;
+        }
+        div.markdown-body a:hover, a:hover {
+            color: #c71585;
+            text-decoration: underline;
+        }
+
+
+
+
+
+
+/* ===== Pengrui Xiang homepage refinements ===== */
+#research-interests, #news, #experience, #publications, #projects, #awards, #leadership, #skills { scroll-margin-top: 82px; }
+
+body {
+  font-family: Inter, "Segoe UI", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  color: #30343b;
+}
+
+.main-heading {
+  font-family: "Permanent Marker", "Segoe UI", cursive;
+  font-size: clamp(1.85rem, 4vw, 2.65rem);
+  margin-top: 0.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.profile-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 18px 0 28px;
+}
+.profile-highlights span {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid #ecd1d1;
+  background: #fff8f8;
+  color: #6b5b5b;
+  font-size: 13px;
+}
+.profile-highlights strong { color: #b45f5f; }
+
+.interest-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 12px 0 24px;
+}
+.interest-chip {
+  padding: 16px 18px;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #ffffff, #fafafa);
+  box-shadow: 0 4px 12px rgba(0,0,0,.04);
+}
+.interest-chip strong { display: block; color: #30343b; margin-bottom: 5px; }
+.interest-chip span { color: #73777f; font-size: 13px; line-height: 1.55; }
+
+.news-box { max-height: 260px; }
+.news-list strong { color: #4f555d; }
+
+.experience-card { align-items: flex-start; padding: 18px; }
+.experience-logo { width: 66px; height: 66px; flex: 0 0 auto; }
+.experience-info { line-height: 1.58; color: #555b64; }
+.experience-info strong { color: #2d3138; font-size: 1.08rem; }
+.muted-line { color: #7a7f86; }
+
+.publication-note {
+  margin: 8px 0 16px;
+  color: #858991;
+  font-size: 13px;
+}
+.publication-card, .project-card { padding: 10px; }
+.publication-inner {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 18px;
+}
+.pub-media-rotator {
+  position: relative;
+  width: 300px;
+  height: 169px;
+  border-radius: 9px;
+  overflow: hidden;
+  flex: 0 0 auto;
+  background: white;
+  border: 1px solid #ececec;
+}
+.pub-media-rotator > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.publication-content {
+  line-height: 1.58;
+  min-width: 0;
+}
+.publication-content > strong { font-size: 1.03rem; color: #24272d; }
+.publication-content a { white-space: nowrap; }
+.venue-line { color: #83a1c7; display: inline-block; margin-top: 6px; }
+
+.award-list { line-height: 1.65; }
+.award-list li { margin-bottom: 8px; }
+.award-list em { color: #ca6f6f; display: inline-block; min-width: 88px; }
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.skills-grid > div {
+  padding: 14px 16px;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  background: #fbfbfb;
+}
+.skills-grid strong { display: block; color: #3f444c; margin-bottom: 4px; }
+.skills-grid span { color: #70757d; font-size: 13px; line-height: 1.55; }
+
+.author__avatar img { object-fit: cover; object-position: center top; }
+.author__content .author__name { letter-spacing: .01em; }
+.author__bio { line-height: 1.55; }
+
+@media (max-width: 720px) {
+  .interest-grid, .skills-grid { grid-template-columns: 1fr; }
+  .publication-inner { flex-direction: column; align-items: stretch; }
+  .pub-media-rotator { width: 100%; height: auto; aspect-ratio: 16 / 9; }
+  .experience-card { flex-direction: column; }
+  .experience-logo { margin: 0 0 12px; }
+  .profile-highlights span { width: 100%; justify-content: space-between; }
+}
+
+.result-line {
+  display: inline-block;
+  margin-top: 5px;
+  color: #6f747c;
+  font-size: 13px;
+  line-height: 1.52;
+}
+
+
+/* ===== 2026.07 content expansion ===== */
+#other-research, #projects, #miscellaneous { scroll-margin-top: 82px; }
+.compact-bullets {
+  margin: 8px 0 0 1.1rem;
+  padding: 0;
+  color: #666c74;
+}
+.compact-bullets li { margin: 3px 0; }
+.project-card .pub-media-rotator > img.project-image { object-fit: cover; }
+.software-project { border-color: #dce6f3; background: linear-gradient(145deg, #fff, #fbfdff); }
+.tech-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.tech-tags span {
+  display: inline-flex;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #f0f5fb;
+  border: 1px solid #d7e2ef;
+  color: #58708c;
+  font-size: 11px;
+  line-height: 1.35;
+}
+.project-links { margin-top: 10px; }
+.project-links a {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 11px;
+  border-radius: 999px;
+  background: #fff4f0;
+  border: 1px solid #f3c4b2;
+  color: #b85f3e !important;
+  font-size: 12px;
+  font-weight: 650;
+}
+.misc-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 12px 0 26px;
+}
+.misc-card {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 17px 18px;
+  border: 1px solid #e7e7e7;
+  border-radius: 13px;
+  background: linear-gradient(145deg, #fff, #fafafa);
+  box-shadow: 0 4px 12px rgba(0,0,0,.04);
+}
+.misc-card:last-child { grid-column: 1 / -1; }
+.misc-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #fff3f0;
+  flex: 0 0 auto;
+  font-size: 22px;
+}
+.misc-card strong { display: block; color: #343941; margin-bottom: 4px; }
+.misc-card p { margin: 0; color: #686e77; font-size: 13px; line-height: 1.6; }
+@media (max-width: 720px) {
+  .misc-grid { grid-template-columns: 1fr; }
+  .misc-card:last-child { grid-column: auto; }
+}
+
+
+/* ===== bilingual interface, official identity marks, and text-first research ===== */
+html:not([data-language="zh"]) .lang-zh { display: none !important; }
+html[data-language="zh"] .lang-en { display: none !important; }
+html[data-language="zh"] body { font-family: Inter, "PingFang SC", "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; }
+#research-interests, #news, #experience, #publications, #other-research, #projects, #awards, #leadership, #skills, #miscellaneous { scroll-margin-top: 88px; }
+.masthead__menu { display: flex; align-items: center; width: 100%; gap: 12px; }
+.greedy-nav { flex: 1 1 auto; min-width: 0; }
+.masthead-tools { flex: 0 0 auto; display: flex; align-items: center; }
+.language-toggle {
+  border: 1px solid rgba(202,111,111,.38); background: #fff8f8; color: #a95353;
+  border-radius: 999px; padding: 7px 12px; font-size: 12px; font-weight: 700;
+  cursor: pointer; white-space: nowrap; transition: .2s ease;
+}
+.language-toggle:hover { background: #fff0f0; border-color: #ca6f6f; transform: translateY(-1px); }
+.experience-logo-link { width: 78px; min-width: 78px; height: 72px; margin-right: 18px; display: flex; align-items: center; justify-content: center; border-radius: 10px; background: #fff; border: 1px solid #eee; overflow: hidden; }
+.experience-logo-link--wide { width: 132px; min-width: 132px; }
+.experience-logo-link .experience-logo { width: 100%; height: 100%; margin: 0; padding: 7px; object-fit: contain; border-radius: 0; }
+.experience-logo-link--wide .experience-logo--wide { padding: 8px; }
+.official-logo { background: white; }
+.venue-line a { color: inherit !important; text-decoration: underline; text-decoration-color: rgba(131,161,199,.45); text-underline-offset: 2px; }
+.pub-list-badge { text-decoration: none !important; }
+.pub-list-badge:hover { filter: brightness(.96); }
+.research-list { display: grid; gap: 13px; margin: 12px 0 26px; }
+.research-item { display: grid; grid-template-columns: 150px minmax(0,1fr); gap: 18px; padding: 17px 19px; border: 1px solid #e7e7e7; border-radius: 12px; background: linear-gradient(145deg,#fff,#fbfbfb); box-shadow: 0 4px 12px rgba(0,0,0,.035); }
+.research-date { color: #ca6f6f; font-size: 13px; font-weight: 700; padding-top: 2px; }
+.research-item strong { color: #30343b; }
+.research-meta { color: #777d85; font-size: 12px; margin: 3px 0 6px; font-style: italic; }
+.research-item p { color: #666c74; margin: 0; font-size: 13px; line-height: 1.62; }
+.full-publication-list .pub-list-links { white-space: nowrap; }
+@media (max-width: 900px) {
+  .masthead-tools { margin-left: auto; }
+  .language-toggle { padding: 6px 10px; }
+}
+@media (max-width: 720px) {
+  .research-item { grid-template-columns: 1fr; gap: 4px; }
+  .experience-logo-link, .experience-logo-link--wide { width: 118px; min-width: 118px; height: 64px; margin: 0 0 12px; }
+  .masthead__menu { gap: 7px; }
+}
+</style><script>(function(){document.documentElement.setAttribute('data-language','en');document.documentElement.lang='en'})();</script></head><body>
+<header class="masthead"><div class="masthead-inner"><a class="site-title" href="#top"><span class="lang-en">Pengrui Xiang</span><span class="lang-zh">向鹏睿</span></a><button class="menu-button" id="menu-button" aria-label="Open navigation">☰</button><nav class="nav" id="nav"><a href="#news"><span class="lang-en">News</span><span class="lang-zh">动态</span></a><a href="#publications"><span class="lang-en">Works</span><span class="lang-zh">研究成果</span></a><a href="#experience"><span class="lang-en">Experience</span><span class="lang-zh">经历</span></a><a href="#other-research"><span class="lang-en">Other Research</span><span class="lang-zh">其他研究</span></a><a href="#projects"><span class="lang-en">Projects</span><span class="lang-zh">项目</span></a><a href="#awards"><span class="lang-en">Awards</span><span class="lang-zh">奖项</span></a><a href="#leadership"><span class="lang-en">Leadership</span><span class="lang-zh">学生工作</span></a><a href="#skills"><span class="lang-en">Skills</span><span class="lang-zh">技能</span></a><a href="#miscellaneous"><span class="lang-en">Misc.</span><span class="lang-zh">其他</span></a></nav><button id="language-toggle-standalone" class="language-toggle-standalone" aria-label="切换至简体中文">简体中文</button></div></header>
+<main id="top" class="site-main"><aside class="sidebar"><div class="author-avatar"><img src="assets/images/avatar.jpg" alt="Pengrui Xiang"></div><div><h2 class="author-name"><span class="lang-en">Pengrui Xiang</span><span class="lang-zh">向鹏睿</span></h2><p class="author-bio"><span class="lang-en">Undergraduate researcher in LLMs, agents, multimodal learning, and trustworthy AI.</span><span class="lang-zh">关注大语言模型、智能体、多模态学习与可信人工智能的本科生研究者。</span></p></div><ul class="author-links"><li><a href="https://www.google.com/maps/search/?api=1&query=Beijing%2C%20China" target="_blank"><span class="icon">⌖</span><span class="lang-en">Beijing, China</span><span class="lang-zh">中国·北京</span></a></li><li><a href="https://www.bjut.edu.cn/" target="_blank"><span class="icon">▣</span><span class="lang-en">Beijing University of Technology</span><span class="lang-zh">北京工业大学</span></a></li><li><a href="mailto:xiangpengrui@emails.bjut.edu.cn"><span class="icon">✉</span><span class="lang-en">Email</span><span class="lang-zh">邮箱</span></a></li><li><a href="https://github.com/Cuberpeng" target="_blank"><span class="icon">⌘</span>GitHub</a></li><li><a href="https://space.bilibili.com/548243474" target="_blank"><span class="icon">▹</span>Bilibili</a></li></ul></aside><article class="page"><div class="page-content"><div class="lang-en">
+<p>I am <strong>Pengrui Xiang (向鹏睿)</strong>, an undergraduate student in the Information Security Experimental Program at Beijing University of Technology. My broader interests lie in <strong>large language models, agents, and multimodal intelligence</strong>, with current research spanning trustworthy AI, model behavior, safety alignment, and vision-language learning.</p>
+</div>
+<div class="lang-zh">
+<p>我是<strong>向鹏睿（Pengrui Xiang）</strong>，现就读于北京工业大学计算机学院信息安全实验班。我的研究兴趣主要包括<strong>大语言模型、智能体与多模态智能</strong>，目前关注可信人工智能、模型行为、安全对齐与视觉语言学习等问题。</p>
+</div>
+
+<div class="profile-highlights">
+  <span><strong><span class="lang-en">GPA</span><span class="lang-zh">绩点</span></strong> 3.99 / 4.00</span>
+  <span><strong><span class="lang-en">Average</span><span class="lang-zh">加权平均分</span></strong> 91.84</span>
+  <span><strong><span class="lang-en">Rank</span><span class="lang-zh">专业排名</span></strong> 8 / 66</span>
+  <span><strong><span class="lang-en">English</span><span class="lang-zh">英语</span></strong> CET-4 590 · CET-6 554</span>
+</div>
+
+<h2 id="news"><span class="lang-en">News</span><span class="lang-zh">动态</span></h2>
+<div class="news-box"><ul class="news-list">
+  <li><span class="news-date"><em>2026.07</em></span> 🎉 <span class="lang-en">EviGuard was accepted by <a href="https://2026.acmmm.org/" target="_blank" rel="noreferrer"><strong>ACM Multimedia 2026</strong></a>.</span><span class="lang-zh">EviGuard 被 <a href="https://2026.acmmm.org/" target="_blank" rel="noreferrer"><strong>ACM Multimedia 2026</strong></a> 录用。</span></li>
+  <li><span class="news-date"><em>2026.05</em></span> 🎉 <span class="lang-en">BEACON was accepted by <a href="https://2026.ijcai.org/" target="_blank" rel="noreferrer"><strong>IJCAI 2026</strong></a>.</span><span class="lang-zh">BEACON 被 <a href="https://2026.ijcai.org/" target="_blank" rel="noreferrer"><strong>IJCAI 2026</strong></a> 录用。</span></li>
+  <li><span class="news-date"><em>2026.04</em></span> 🎤 <span class="lang-en">BRACE was accepted as an <strong>oral paper</strong> at <a href="https://ic-icc.cn/" target="_blank" rel="noreferrer">ICIC 2026</a>.</span><span class="lang-zh">BRACE 被 <a href="https://ic-icc.cn/" target="_blank" rel="noreferrer">ICIC 2026</a> 录用为<strong>口头报告论文</strong>。</span></li>
+  <li><span class="news-date"><em>2025.09</em></span> 🏆 <span class="lang-en">Won First Prize in the Beijing Division of the National College Students Mathematical Modeling Competition.</span><span class="lang-zh">获全国大学生数学建模竞赛北京赛区一等奖。</span></li>
+  <li><span class="news-date"><em>2025.06</em></span> 🤖 <span class="lang-en">Won Third Prize in the Beijing Division of the China Robot and Artificial Intelligence Competition.</span><span class="lang-zh">获中国机器人及人工智能大赛北京赛区三等奖。</span></li>
+</ul></div>
+
+<h2 id="publications"><span class="lang-en">Research Works</span><span class="lang-zh">研究成果</span></h2>
+<div class="pub-button-container">
+  <button class="pub-button active" onclick="filterPublications(event, 'all')"><span class="lang-en">Selected Works</span><span class="lang-zh">精选工作</span></button>
+  <button class="pub-button" onclick="filterPublications(event, 'list')"><span class="lang-en">Full Publication List</span><span class="lang-zh">完整论文列表</span></button>
+</div>
+<div class="publication-note"><span class="lang-en">My name is highlighted in bold. <sup>†</sup> denotes corresponding authors.</span><span class="lang-zh">我的姓名以粗体标出，<sup>†</sup> 表示通讯作者。</span></div>
+
+<div id="core-publications" class="publication-view" data-publication-view="core">
+  <div class="publication-card featured"><div class="publication-inner"><div class="pub-media-rotator"><img src="assets/images/eviguard-framework.png" alt="EviGuard framework"></div><div class="publication-content">
+    <strong>EviGuard: Evidence-Guided Connector Intervention for Cross-Modal Safety Unlearning in Multimodal LLMs</strong><br><i>Xinyi Huang, <strong>Pengrui Xiang</strong>, Jie Wang, Xuchen Zhai, Jinduo Liu<sup>†</sup>, Honggui Han<sup>†</sup></i><br>
+    <span class="lang-en">EviGuard estimates an evidence-weighted low-rank risk subspace at the multimodal connector, selectively suppressing risk-aligned directions while preserving benign capability and improving generalization to unseen cross-modal threats.</span><span class="lang-zh">EviGuard 在多模态连接器处估计证据加权的低秩风险子空间，仅抑制风险相关方向，在保留正常能力的同时提升对未见跨模态威胁的泛化防御能力。</span><br>
+    <b><i class="venue-line"><a href="https://2026.acmmm.org/" target="_blank" rel="noreferrer">ACM Multimedia 2026</a> · CCF A · <span class="lang-en">Accepted</span><span class="lang-zh">已录用</span></i></b> <a href="assets/papers/EviGuard.pdf"><em>[<span class="lang-en">paper</span><span class="lang-zh">论文</span>]</em></a>
+  </div></div></div>
+
+  <div class="publication-card"><div class="publication-inner"><div class="pub-media-rotator"><img src="assets/images/brace-framework.png" alt="BRACE framework"></div><div class="publication-content">
+    <strong>BRACE: A Benign-History Robust Anchored Calibration and Evaluation Framework for Large Language Model Refusal</strong><br><i><strong>Pengrui Xiang</strong>, Xinyi Huang, Kunyi Zhou, Bokai Cheng, Jinduo Liu<sup>†</sup>, Honggui Han<sup>†</sup></i><br>
+    <span class="lang-en">BRACE identifies benign-history-induced refusal drift, constructs History-XSTest with no-history anchors, and uses rank-1 LoRA calibration to reduce false refusals while preserving unsafe-query refusal and improving cross-history consistency.</span><span class="lang-zh">BRACE 建模良性历史诱导的拒答漂移，构建带无历史锚点的 History-XSTest，并使用 Rank-1 LoRA 进行锚定校准，在保持危险请求拒答能力的同时降低误拒答并提升跨历史一致性。</span><br>
+    <span class="result-line"><span class="lang-en">Highlights: FR5 29.8% → 17.8%; RSS 0.269 → 0.381, with unsafe-query refusal retained.</span><span class="lang-zh">主要结果：FR5 从 29.8% 降至 17.8%，RSS 从 0.269 提升至 0.381，同时保持危险请求拒答能力。</span></span><br>
+    <b><i class="venue-line"><a href="https://ic-icc.cn/" target="_blank" rel="noreferrer">ICIC 2026</a> · Oral · CCF C · <span class="lang-en">Accepted</span><span class="lang-zh">已录用</span></i></b> <a href="assets/papers/BRACE.pdf"><em>[<span class="lang-en">paper</span><span class="lang-zh">论文</span>]</em></a> <a href="https://doi.org/10.1007/978-981-92-3435-6_19" target="_blank" rel="noreferrer"><em>[DOI]</em></a>
+  </div></div></div>
+
+  <div class="publication-card"><div class="publication-inner"><div class="pub-media-rotator"><img src="assets/images/beacon-framework.png" alt="BEACON framework"></div><div class="publication-content">
+    <strong>BEACON: Budget-Efficient Discovery of Policy Violations in Large Language Models via Cognitive-Guided Monte Carlo Tree Search</strong><br><i>Xinyi Huang, Jie Wang, <strong>Pengrui Xiang</strong>, Yifan Wang, Yu Fu, Jinduo Liu<sup>†</sup></i><br>
+    <span class="lang-en">BEACON reframes LLM red teaming as budget-constrained failure discovery and combines cognitive profiling, diversity-aware MCTS, Q-learning, and memory retrieval to discover diverse safety failures earlier with fewer target-model queries.</span><span class="lang-zh">BEACON 将大模型红队测试重新建模为预算约束下的风险发现问题，结合认知画像、多样性感知 MCTS、Q-learning 与经验检索，以更少查询更早发现更多类型的安全失败。</span><br>
+    <span class="result-line"><span class="lang-en">Highlights: k-FDQ reduced from 95 to 26 on StrongREJECT and from 120 to 40 on HarmBench.</span><span class="lang-zh">主要结果：StrongREJECT 上 k-FDQ 从 95 降至 26，HarmBench 上从 120 降至 40。</span></span><br>
+    <b><i class="venue-line"><a href="https://2026.ijcai.org/" target="_blank" rel="noreferrer">IJCAI 2026</a> · CCF A-B · <span class="lang-en">Accepted</span><span class="lang-zh">已录用</span></i></b> <a href="assets/papers/BEACON.pdf"><em>[<span class="lang-en">paper</span><span class="lang-zh">论文</span>]</em></a>
+  </div></div></div>
+
+  <div class="publication-card"><div class="publication-inner"><div class="pub-media-rotator"><img src="assets/images/mars-clip-framework.png" alt="Mars-CLIP framework"></div><div class="publication-content">
+    <strong>Mars-CLIP: Global-Local Semantic Bridging for Remote Sensing Vision-Language Learning</strong><br><i>Kunyi Zhou<sup>†</sup>, Zimo Han, Yuxuan Wang, <strong>Pengrui Xiang</strong>, Shangqing Li, Bokai Cheng, Xifan Yin</i><br>
+    <span class="lang-en">A remote-sensing vision-language pre-training study exploring global-local semantic supervision and visual adaptation for zero-shot classification.</span><span class="lang-zh">一项面向遥感视觉语言预训练的研究，探索全局与局部语义监督及视觉适配，以提升零样本分类能力。</span><br>
+    <b><i class="venue-line"><span class="lang-en">In preparation for</span><span class="lang-zh">计划投稿至</span> <a href="https://aaai.org/conference/aaai/aaai-27/" target="_blank" rel="noreferrer">AAAI 2027</a></i></b>
+  </div></div></div>
+</div>
+
+<div id="full-publications" class="publication-view" data-publication-view="list" hidden>
+  <ul class="full-publication-list">
+    <li><a class="pub-list-badge" href="https://2026.acmmm.org/" target="_blank" rel="noreferrer">ACM MM 2026</a> <span class="pub-list-title">EviGuard: Evidence-Guided Connector Intervention for Cross-Modal Safety Unlearning in Multimodal LLMs</span><br><span class="pub-list-authors">Xinyi Huang, <strong>Pengrui Xiang</strong>, Jie Wang, Xuchen Zhai, Jinduo Liu<sup>†</sup>, Honggui Han<sup>†</sup></span> <span class="pub-list-note"><span class="lang-en">Accepted, CCF A.</span><span class="lang-zh">已录用，CCF A。</span></span> <span class="pub-list-links"><a href="assets/papers/EviGuard.pdf">[<span class="lang-en">paper</span><span class="lang-zh">论文</span>]</a></span></li>
+    <li><a class="pub-list-badge" href="https://ic-icc.cn/" target="_blank" rel="noreferrer">ICIC 2026</a> <span class="pub-list-title">BRACE: A Benign-History Robust Anchored Calibration and Evaluation Framework for Large Language Model Refusal</span><br><span class="pub-list-authors"><strong>Pengrui Xiang</strong>, Xinyi Huang, Kunyi Zhou, Bokai Cheng, Jinduo Liu<sup>†</sup>, Honggui Han<sup>†</sup>.</span> <span class="pub-list-note"><span class="lang-en">Oral, accepted, CCF C.</span><span class="lang-zh">口头报告，已录用，CCF C。</span></span> <span class="pub-list-links"><a href="assets/papers/BRACE.pdf">[<span class="lang-en">paper</span><span class="lang-zh">论文</span>]</a> <a href="https://doi.org/10.1007/978-981-92-3435-6_19" target="_blank" rel="noreferrer">[DOI]</a></span></li>
+    <li><a class="pub-list-badge" href="https://2026.ijcai.org/" target="_blank" rel="noreferrer">IJCAI 2026</a> <span class="pub-list-title">BEACON: Budget-Efficient Discovery of Policy Violations in Large Language Models via Cognitive-Guided Monte Carlo Tree Search</span><br><span class="pub-list-authors">Xinyi Huang, Jie Wang, <strong>Pengrui Xiang</strong>, Yifan Wang, Yu Fu, Jinduo Liu<sup>†</sup></span> <span class="pub-list-note"><span class="lang-en">Accepted, CCF A-B.</span><span class="lang-zh">已录用，CCF A-B。</span></span> <span class="pub-list-links"><a href="assets/papers/BEACON.pdf">[<span class="lang-en">paper</span><span class="lang-zh">论文</span>]</a></span></li>
+    <li><a class="pub-list-badge" href="https://icvrv2025.aconf.org/" target="_blank" rel="noreferrer">ICVRV 2025</a> <span class="pub-list-title">GundamQ: Multi-Scale Spatio-Temporal Representation Learning for Robust Robot Path Planning</span><br><span class="pub-list-authors">Yutong Shen<sup>†</sup>, Ruizhe Xia<sup>†</sup>, Bokai Yan, Shunqi Zhang, <strong>Pengrui Xiang</strong>, Sicheng He, Yixin Xu</span> <span class="pub-list-note"><span class="lang-en">Accepted.</span><span class="lang-zh">已录用。</span></span> <span class="pub-list-links"><a href="https://ieeexplore.ieee.org/abstract/document/11410184" target="_blank" rel="noreferrer">[IEEE Xplore]</a></span></li>
+  </ul>
+</div>
+
+<h2 id="experience"><span class="lang-en">Experience</span><span class="lang-zh">经历</span></h2>
+<div class="experience-container">
+  <div class="experience-card">
+    <a href="https://www.bjut.edu.cn/" target="_blank" rel="noreferrer" class="experience-logo-link"><img src="assets/images/bjut-logo.png" alt="Beijing University of Technology official logo" class="experience-logo official-logo"></a>
+    <div class="experience-info"><strong><span class="lang-en">Beijing University of Technology</span><span class="lang-zh">北京工业大学</span></strong><br><em>2023.09 - <span class="lang-en">Present</span><span class="lang-zh">至今</span></em><br>
+      <span class="lang-en">B.E. candidate in Information Security (Experimental Program), College of Computer Science.</span><span class="lang-zh">计算机学院信息安全（实验班）本科生。</span><br>
+      <span class="muted-line lang-en">Weighted average 91.84 · GPA 3.99/4.00 · Rank 8/66. Core courses: Cryptography 100, Network Protocol Analysis and Design 100, Network Attack and Defense 99, Data Structures and Algorithms 98.</span><span class="muted-line lang-zh">加权平均分 91.84 · GPA 3.99/4.00 · 专业排名 8/66。主要课程：密码学 100、网络协议分析与设计 100、网络攻击与防护 99、数据结构与算法 98。</span>
+    </div>
+  </div>
+  <div class="experience-card">
+    <a href="https://home.baidu.com/" target="_blank" rel="noreferrer" class="experience-logo-link experience-logo-link--wide"><img src="assets/images/baidu-logo.jpg" alt="Baidu official logo" class="experience-logo experience-logo--wide official-logo"></a>
+    <div class="experience-info"><strong><span class="lang-en">Baidu · Multi-Agent World Website Design & Development Intern</span><span class="lang-zh">百度 · 多智能体世界网站设计与开发实习生</span></strong><br><em>2026.07 - <span class="lang-en">Present</span><span class="lang-zh">至今</span></em><br>
+      <span class="lang-en">Participating in the design and development of an interactive multi-agent world website through three connected subprojects:</span><span class="lang-zh">围绕交互式多智能体世界网站开展设计与开发，主要包括三个相互衔接的子课题：</span>
+      <ul class="compact-bullets"><li><span class="lang-en">multi-agent role definitions and world-rule design;</span><span class="lang-zh">多智能体角色设定与世界规则设计；</span></li><li><span class="lang-en">agent dialogue, task flows, and behavioral-logic orchestration;</span><span class="lang-zh">Agent 对话、任务流程与行为逻辑编排；</span></li><li><span class="lang-en">website front-end pages and interactive presentation.</span><span class="lang-zh">网站前端页面与交互展示开发。</span></li></ul>
+    </div>
+  </div>
+  <div class="experience-card">
+    <a href="https://www.nankai.edu.cn/" target="_blank" rel="noreferrer" class="experience-logo-link"><img src="assets/images/nankai-logo.jpg" alt="Nankai University logo" class="experience-logo official-logo"></a>
+    <div class="experience-info"><strong><span class="lang-en">Nankai University · Research Collaboration</span><span class="lang-zh">南开大学 · 科研合作</span></strong><br><em>2025.11 - 2026.03</em><br><span class="lang-en">Participated in the Omni-IRSTD dataset and fisheye-simulation research collaboration, supporting dataset organization, annotation, and exploratory experiments.</span><span class="lang-zh">参与 Omni-IRSTD 数据集与鱼眼仿真研究合作，支持数据集整理、标注与探索性实验。</span></div>
+  </div>
+  <div class="experience-card">
+    <img src="assets/images/security-exercise-logo.svg" alt="Cybersecurity exercise" class="experience-logo">
+    <div class="experience-info"><strong><span class="lang-en">Beijing Education System Cybersecurity Exercise</span><span class="lang-zh">北京市教育系统网络安全攻防演习</span></strong><br><em>2025.10 - 2025.11</em><br><span class="lang-en">Served on the university attack team, identified three weak-password vulnerabilities and several personal-information exposure issues, and represented the team at the final review meeting.</span><span class="lang-zh">作为学校攻击队成员，发现三处弱口令漏洞及若干个人信息泄露问题，并代表队伍参加总结会。</span></div>
+  </div>
+  <div class="experience-card">
+    <a href="https://www.ericsson.com/" target="_blank" rel="noreferrer" class="experience-logo-link"><img src="assets/images/ericsson-logo.png" alt="Ericsson official logo" class="experience-logo official-logo"></a>
+    <div class="experience-info"><strong><span class="lang-en">Ericsson (China), Software Development Intern</span><span class="lang-zh">爱立信（中国）· 软件开发实习生</span></strong><br><em>2025.01 - 2025.02</em><br><span class="lang-en">Developed a utility for resolving project code-refactoring conflicts and gained practical experience in software engineering and collaborative development.</span><span class="lang-zh">开发用于解决项目代码重构冲突的工具，积累软件工程与协作开发实践经验。</span></div>
+  </div>
+</div>
+
+<h2 id="other-research"><span class="lang-en">Other Research</span><span class="lang-zh">其他研究</span></h2>
+<div class="research-list">
+  <article class="research-item"><div class="research-date">2025.11 - 2026.03</div><div><strong><span class="lang-en">Omni-IRSTD Dataset and Fisheye Simulation Research</span><span class="lang-zh">Omni-IRSTD 数据集与鱼眼仿真研究</span></strong><div class="research-meta"><span class="lang-en">Research collaboration</span><span class="lang-zh">科研合作</span></div><p class="lang-en">Collected and categorized multiple infrared small-target datasets, organized annotations and quality checks, and supported exploratory experiments for infrared small-target detection and fisheye simulation.</p><p class="lang-zh">搜集并分类整理多组红外弱小目标数据集，完成标注与质量检查，并支持红外弱小目标检测及鱼眼仿真的探索性实验。</p></div></article>
+  <article class="research-item"><div class="research-date">2024.02 - 2025.04</div><div><strong><span class="lang-en">Few-shot IoT Traffic Classification with Pre-trained Models</span><span class="lang-zh">小样本条件下基于预训练模型的物联网流量分类</span></strong><div class="research-meta"><span class="lang-en">BJUT Spark Fund Project</span><span class="lang-zh">北京工业大学星火基金项目</span></div><p class="lang-en">Studied few-shot network traffic classification, reviewed related literature, explored feature pipelines and traditional machine-learning baselines, and completed the transition from coursework to research practice.</p><p class="lang-zh">围绕小样本网络流量分类开展文献调研与实验探索，尝试特征处理流程及传统机器学习基线，完成从课程学习到科研实践的初步过渡。</p></div></article>
+  <article class="research-item"><div class="research-date">2025.02 - 2025.05</div><div><strong><span class="lang-en">Vision-Language Models, Acceleration, and Efficient Fine-tuning</span><span class="lang-zh">视觉语言模型、模型加速与高效微调</span></strong><div class="research-meta">CCF SPP GrokCV <span class="lang-en">Sprouts Training Program</span><span class="lang-zh">新芽训练计划</span></div><p class="lang-en">Systematically read classic and recent papers, summarized core methods, strengthened deep-learning foundations, and reproduced selected techniques in model acceleration and parameter-efficient adaptation.</p><p class="lang-zh">系统阅读相关经典与前沿论文，整理核心方法，补充深度学习基础，并尝试复现模型加速与参数高效适配方向的部分技术。</p></div></article>
+</div>
+
+<h2 id="projects"><span class="lang-en">Projects</span><span class="lang-zh">项目</span></h2>
+<div class="project-card software-project"><div class="publication-inner"><div class="pub-media-rotator"><img src="assets/images/garden-dash.png" alt="Garden Dash gameplay" class="project-image"></div><div class="publication-content"><strong><span class="lang-en">Garden Dash: A Feature-Rich 2D Runner</span><span class="lang-zh">花园疾跑：功能丰富的二维跑酷游戏</span></strong><br><i><span class="lang-en">Independent C / EasyX software project</span><span class="lang-zh">C / EasyX 独立软件项目</span> · 2024.05</i><br><span class="lang-en">Built a complete desktop runner game with an account system, persistent player data, a three-lane real-time game loop, animated obstacles and power-ups, collision detection, scoring, coins, rankings, a store, unlockable skins, an in-game encyclopedia, music and sound effects, and multi-page mouse/keyboard interaction.</span><span class="lang-zh">开发一款完整的桌面跑酷游戏，包含账号系统、玩家数据持久化、三轨实时游戏循环、动态障碍物与道具、碰撞检测、计分与金币、排行榜、商城、可解锁皮肤、图鉴、音乐音效，以及多页面鼠标与键盘交互。</span><div class="tech-tags"><span>C</span><span>EasyX</span><span>File I/O</span><span>Linked Lists</span><span>Windows Multimedia API</span></div></div></div></div>
+<div class="project-card software-project"><div class="publication-inner"><div class="pub-media-rotator"><img src="assets/images/structura.png" alt="Structura data structure visualizer" class="project-image"></div><div class="publication-content"><strong><span class="lang-en">Structura: An Interactive Data Structure Visualizer</span><span class="lang-zh">Structura：交互式数据结构可视化平台</span></strong><br><i><span class="lang-en">Open-source C++ / Qt software project</span><span class="lang-zh">开源 C++ / Qt 软件项目</span> · 2025.12</i><br><span class="lang-en">Designed a beginner-oriented visual simulator for sequence lists, linked lists, stacks, binary trees, binary search trees, Huffman trees, and AVL trees. The system includes a unified step-queue animation engine with pause, replay, and speed control; pan and zoom; animated insertion, deletion, traversal, search, and tree rotation; DSL batch scripts; natural-language-to-DSL execution through an LLM interface; JSON-based save and restore; GIF export; and customizable colors.</span><span class="lang-zh">设计面向初学者的数据结构可视化模拟器，支持顺序表、链表、栈、二叉树、二叉搜索树、哈夫曼树与 AVL 树。系统包含统一步骤队列动画引擎及暂停、重播、调速功能，支持画布缩放平移、插入删除遍历查找与树旋转动画、DSL 批处理脚本、通过大模型接口实现自然语言转 DSL、基于 JSON 的保存恢复、GIF 导出及配色自定义。</span><div class="project-links"><a href="https://github.com/Cuberpeng/DSCourseDesign" target="_blank" rel="noreferrer"><span class="lang-en">GitHub Repository</span><span class="lang-zh">GitHub 开源仓库</span></a></div><div class="tech-tags"><span>C++20</span><span>Qt</span><span>CMake</span><span>Algorithms</span><span>DSL</span><span>LLM Interface</span></div></div></div></div>
+
+<div class="project-card software-project"><div class="publication-inner"><div class="pub-media-rotator"><img src="assets/images/faceguard.png" alt="FaceGuard security platform" class="project-image"></div><div class="publication-content"><strong><span class="lang-en">FaceGuard: A Defense and Traceability Platform for Face Recognition Inversion Attacks</span><span class="lang-zh">FaceGuard：人脸识别反演攻击防御与追踪平台</span></strong><br><i><span class="lang-en">Team Python / FastAPI machine-learning security project</span><span class="lang-zh">Python / FastAPI 机器学习安全团队项目</span> · 2026.06</i><br><span class="lang-en">Built an ArcFace-based black-box face recognition security platform that combines administrator face verification and short-lived tokens, clean/protected gallery management, embedding watermarking, score-transformation defense, post-attack watermark detection, and audit logging. A browser front end communicates with a FastAPI backend through an API proxy, while model weights, templates, watermark keys, thresholds, and logs remain isolated on the server. In evaluation, the combined watermark and score-defense setting reduced the inversion-image threshold pass rate from 95.63% to 12.50% while preserving 100% ID accuracy and threshold pass rate on genuine images; watermark detection accuracy reached 98.75%.</span><span class="lang-zh">构建基于 ArcFace 的黑盒人脸识别安全平台，集成管理员人脸验证与短期令牌、clean/protected Gallery 管理、特征水印、分数变换防御、攻击后水印检测与日志审计。浏览器前端通过 API 代理连接 FastAPI 后端，模型权重、模板、水印密钥、阈值和日志均隔离保存在服务端。实验中，同时启用水印与分数防御后，反演图阈值通过率由 95.63% 降至 12.50%，正常原图的 ID 准确率与阈值通过率仍保持 100%，水印检测准确率达到 98.75%。</span><div class="tech-tags"><span>Python</span><span>FastAPI</span><span>ArcFace</span><span>HTML/CSS/JavaScript</span><span>Feature Watermarking</span><span>Audit Logging</span></div></div></div></div>
+
+<h2 id="awards"><span class="lang-en">Awards & Honors</span><span class="lang-zh">奖项与荣誉</span></h2>
+<ul class="award-list">
+  <li><em>2025.09</em>, <span class="lang-en">First Prize, Beijing Division, National College Students Mathematical Modeling Competition.</span><span class="lang-zh">全国大学生数学建模竞赛北京赛区一等奖。</span></li>
+  <li><em>2025.06</em>, <span class="lang-en">Third Prize, Beijing Division, China Robot and Artificial Intelligence Competition.</span><span class="lang-zh">中国机器人及人工智能大赛北京赛区三等奖。</span></li>
+  <li><em>2025.05</em>, <span class="lang-en">Second Prize, BJUT ACM-ICPC Programming Contest.</span><span class="lang-zh">北京工业大学 ACM-ICPC 程序设计竞赛二等奖。</span></li>
+  <li><em>2024.10</em>, <span class="lang-en">Second Prize, BJUT Team Programming Ladder Tournament.</span><span class="lang-zh">中国高校计算机大赛团队程序设计天梯赛校级二等奖。</span></li>
+  <li><em>2025.10</em>, <span class="lang-en">Third Prize, BJUT Network Technology Challenge.</span><span class="lang-zh">中国高校计算机大赛网络技术挑战赛校级三等奖。</span></li>
+  <li><em>2025</em>, <span class="lang-en">Merit Student, Beijing University of Technology.</span><span class="lang-zh">北京工业大学校级三好学生。</span></li>
+  <li><em>2024 & 2025</em>, <span class="lang-en">Academic Excellence Scholarship, Beijing University of Technology.</span><span class="lang-zh">北京工业大学校级学习优秀奖（奖学金）。</span></li>
+  <li><em>2025</em>, <span class="lang-en">Innovation and Entrepreneurship Award, Beijing University of Technology.</span><span class="lang-zh">北京工业大学校级创新创业奖。</span></li>
+</ul>
+
+<h2 id="leadership"><span class="lang-en">Leadership & Campus Activities</span><span class="lang-zh">学生工作与校园活动</span></h2>
+<ul class="award-list"><li><strong><span class="lang-en">Founder and President</span><span class="lang-zh">创办人兼社长</span></strong>, <span class="lang-en">Morefun Rubik's Cube Club, Beijing University of Technology.</span><span class="lang-zh">北京工业大学 Morefun 魔方社。</span></li><li><span class="lang-en">Member, Xinyuan Volunteer Group, directly affiliated with the School Youth League Committee.</span><span class="lang-zh">学院团委直属学生机构心缘志愿团部员。</span></li><li><span class="lang-en">Technical Department Member, School New Media Center.</span><span class="lang-zh">学院新媒体中心技术部部员。</span></li></ul>
+
+<h2 id="skills"><span class="lang-en">Skills</span><span class="lang-zh">技能</span></h2>
+<div class="skills-grid">
+  <div><strong><span class="lang-en">Programming</span><span class="lang-zh">编程语言</span></strong><span>Python, C, C++, Java, Rust, Verilog</span></div>
+  <div><strong><span class="lang-en">Development & Research</span><span class="lang-zh">开发与科研</span></strong><span>PyTorch, Hugging Face, Transformers, Qt, CMake, EasyX, Git, <span class="lang-en">Linux servers, API-based evaluation</span><span class="lang-zh">Linux 服务器、基于 API 的评测</span></span></div>
+  <div><strong><span class="lang-en">Tools</span><span class="lang-zh">工具</span></strong><span>GitHub, LaTeX, Draw.io, Adobe Photoshop, Adobe Illustrator</span></div>
+  <div><strong><span class="lang-en">Languages</span><span class="lang-zh">语言能力</span></strong><span><span class="lang-en">Chinese (native), English (CET-4 590, CET-6 554)</span><span class="lang-zh">中文（母语），英语（CET-4 590，CET-6 554）</span></span></div>
+</div>
+
+<h2 id="miscellaneous"><span class="lang-en">Miscellaneous</span><span class="lang-zh">其他</span></h2>
+<div class="misc-grid">
+  <div class="misc-card"><span class="misc-icon">🧊</span><div><strong><span class="lang-en">Speedcubing</span><span class="lang-zh">魔方速拧</span></strong><p class="lang-en">I am a Rubik's Cube speedcubing enthusiast. At my peak, I reached China's top 200 in a combined World Cube Association ranking. <a href="https://www.worldcubeassociation.org/persons/2017XIAN07" target="_blank" rel="noreferrer">View my WCA profile</a>.</p><p class="lang-zh">我是魔方速拧爱好者，曾在世界魔方协会综合排名中达到中国前 200。<a href="https://www.worldcubeassociation.org/persons/2017XIAN07" target="_blank" rel="noreferrer">查看我的 WCA 个人主页</a>。</p></div></div>
+  <div class="misc-card"><span class="misc-icon">📺</span><div><strong><span class="lang-en">Video Creation</span><span class="lang-zh">视频创作</span></strong><p class="lang-en">I create videos on Bilibili, mainly sharing Rubik's Cube news, competition updates, and community topics. <a href="https://space.bilibili.com/548243474" target="_blank" rel="noreferrer">Visit my Bilibili channel</a>.</p><p class="lang-zh">我在 Bilibili 更新视频，主要分享魔方资讯、赛事动态与社群话题。<a href="https://space.bilibili.com/548243474" target="_blank" rel="noreferrer">访问我的 Bilibili 主页</a>。</p></div></div>
+  <div class="misc-card"><span class="misc-icon">🚇</span><div><strong><span class="lang-en">Transport, Photography & Music</span><span class="lang-zh">交通、摄影与音乐</span></strong><p class="lang-en">I am fascinated by transport systems around the world, especially urban rail transit and civil aviation. I am also a beginner photographer who enjoys roaming through Beijing and cities across the world. Music is another long-running interest: I previously studied piano and erhu, and currently listen most often to <a href="https://en.wikipedia.org/wiki/G.E.M." target="_blank" rel="noreferrer">G.E.M.</a> and <a href="https://en.wikipedia.org/wiki/JJ_Lin" target="_blank" rel="noreferrer">JJ Lin</a>.</p><p class="lang-zh">我对世界各地的交通系统很感兴趣，尤其关注城市轨道交通与民航。我也是摄影初学者和爱好者，喜欢在北京及世界各地转悠。音乐同样是我长期的兴趣，我曾学习钢琴和二胡，目前经常听 <a href="https://zh.wikipedia.org/wiki/%E9%84%A7%E7%B4%AB%E6%A3%8B" target="_blank" rel="noreferrer">邓紫棋</a> 与 <a href="https://zh.wikipedia.org/wiki/%E6%9E%97%E4%BF%8A%E5%82%91" target="_blank" rel="noreferrer">林俊杰</a> 的歌曲。</p></div></div>
+</div>
+</div></article></main>
+<footer class="page-footer"><div class="footer-inner">© 2026 Pengrui Xiang · <span class="lang-en">Built with care for research, software, and curiosity.</span><span class="lang-zh">记录科研、软件与好奇心。</span></div></footer>
+<script>function filterPublications(event, type) {
+  const normalizedType = type === 'list' ? 'list' : 'core';
+  const buttons = document.querySelectorAll('.pub-button');
+  const coreView = document.querySelector('[data-publication-view="core"]');
+  const listView = document.querySelector('[data-publication-view="list"]');
+
+  buttons.forEach((button) => button.classList.remove('active'));
+
+  if (event && event.currentTarget) {
+    event.currentTarget.classList.add('active');
+  } else if (buttons.length) {
+    const activeIndex = normalizedType === 'list' ? 1 : 0;
+    if (buttons[activeIndex]) buttons[activeIndex].classList.add('active');
+  }
+
+  if (coreView) {
+    coreView.hidden = normalizedType === 'list';
+  }
+
+  if (listView) {
+    listView.hidden = normalizedType !== 'list';
+  }
+}
+
+function showPublications(type) {
+  filterPublications(null, type);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  filterPublications(null, 'core');
+});
+</script><script>(function () {
+  function applyLanguage(lang) {
+    var normalized = lang === 'zh' ? 'zh' : 'en';
+    document.documentElement.setAttribute('data-language', normalized);
+    document.documentElement.lang = normalized === 'zh' ? 'zh-CN' : 'en';
+    document.title = normalized === 'zh' ? '向鹏睿 | 个人学术主页' : 'Pengrui Xiang | Academic Homepage';
+    var toggle = document.getElementById('language-toggle') || document.getElementById('language-toggle-standalone');
+    if (toggle) {
+      toggle.textContent = normalized === 'zh' ? 'English' : '简体中文';
+      toggle.setAttribute('aria-label', normalized === 'zh' ? 'Switch to English' : '切换至简体中文');
+    }
+    window.dispatchEvent(new Event('resize'));
+  }
+
+  function initLanguageSwitch() {
+    applyLanguage('en');
+    var toggle = document.getElementById('language-toggle') || document.getElementById('language-toggle-standalone');
+    if (toggle) {
+      toggle.addEventListener('click', function () {
+        var next = document.documentElement.getAttribute('data-language') === 'zh' ? 'en' : 'zh';
+        applyLanguage(next);
+      });
+    }
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initLanguageSwitch);
+  else initLanguageSwitch();
+})();
+</script><script>document.getElementById('menu-button').addEventListener('click',function(){document.getElementById('nav').classList.toggle('open')});document.querySelectorAll('#nav a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('nav').classList.remove('open')})});</script></body></html>
