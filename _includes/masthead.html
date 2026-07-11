@@ -1,0 +1,22 @@
+{% include base_path %}
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button aria-label="Open navigation"><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="{{ base_path }}/"><span class="lang-en">{{ site.title }}</span><span class="lang-zh">向鹏睿</span></a></li>
+          {% for link in site.data.navigation.main %}
+            {% if link.url contains 'http' %}{% assign domain = '' %}{% else %}{% assign domain = base_path %}{% endif %}
+            <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}"><span class="lang-en">{{ link.title_en }}</span><span class="lang-zh">{{ link.title_zh }}</span></a></li>
+          {% endfor %}
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+      <div class="masthead-tools">
+        <button id="language-toggle" class="language-toggle" type="button" aria-label="Switch to Simplified Chinese">简体中文</button>
+      </div>
+    </div>
+  </div>
+</div>
